@@ -1,0 +1,4998 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>
+		Nguyên Tắc Cơ Bản - JS
+	</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
+
+	<!-- Prism -->
+	<link rel="stylesheet" href="vendor/prism/prism.css">
+
+	<!-- Custom Style -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+	<div class="sidebar" id="sidebar">
+		<!-- !?!?!? -->
+	</div>
+
+	<main class="main">
+		<div class="main-inner">
+			<!-- Variables -->
+			<section class="section active">
+				<h2 class="section-title">
+					Variables - Biến
+				</h2>
+				<p class="section-txt">
+					Biến được sử dụng rất nhiều trong bất kỳ một ngôn ngữ nào đó.<br>
+					Nhiệm vụ của nó là là chứa đựng dữ liệu.<br>
+					Biến có thể sử dụng để chứa rất nhiều dữ liệu khác nhau.<br>
+				</p>
+				<div class="block">
+					<h3 class="block-title">
+						Tổng quan
+					</h3>
+					<p>
+						Để sử dụng biến thì chúng ta cần phải khai báo nó trước, để JS có thể biết được.<br>
+						Hiện giờ chúng ta có 3 cách để khai báo biến<br>
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a; // khai báo 1 biến có tên là a
+
+							// let và const là 2 cách khai báo mới được thêm vào tại ES6
+							let b;
+							const c = 3;
+							</code>
+						</pre>
+					</div>
+					<p>
+						Sau khi khai báo biến thì có thể gán cho nó một giá trị, bất kỳ giá trị nào mà bạn muốn.<br>
+						Chúng ta cũng có thể khai báo rồi gán ngay lúc khai báo
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="6">
+							<code class="language-js">
+							var a; // khai báo 1 biến có tên là a
+
+							a = 'Hello Javascript'; // gán a 
+
+							alert(a); // gọi biến thông qua tên
+							</code>
+						</pre>
+						<div class="code-body">
+							var a;
+							a = 'Hello Javascript';
+							alert(a);
+						</div>
+					</div>
+					<p>
+						<br>
+						Chúng ta có thể khai báo nhiều biến cùng một lúc
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 3, b = 5, c = 9;
+
+							// Hoặc là viết nhiều dòng
+							var a = 3,
+								b = 5,
+								c = 9;
+
+
+							// hoặc là viết nhiều lần
+							// cách này lâu nhưng mà nó dễ đọc nhất
+							var a = 3;
+							var b = 5;
+							var c = 9;
+							</code>
+						</pre>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						<br>Giải Thích
+					</h3>
+					<p>
+						Hãy xem variable như là một cái hộp mà bạn có thể bỏ bất kỳ thứ gì vào <br>
+						Cái hộp đó có một cái nhãn ở trên đó, cái này cũng là tên của variable <br>
+						Sau khi gán giá trị rồi thì vẫn có thể gán lại một lần nữa <br>
+						Khi gán 1 giá trị khác thì giá trị cũ sẽ bị xóa đi <br>
+						Chúng ta cũng có thể gán một biến cho một biến khác
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="8,9">
+							<code class="language-js">
+							var a = 3; // a mang giá trị 3
+							
+							a = 'Ocena' // a giờ mang giá trị 'Ocena'
+
+							var b = a; // b có giá trị giống a
+
+							alert(a);
+							alert(b); 
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 3;
+							a = 'Ocena'
+							var b = a;
+							alert(a);
+							alert(b);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Đặt Tên Biến
+					</h3>
+					<p>
+						Trong JS có một quy tắc đặt tên biến là camelCase <br>
+						Hay là viết thường chữ đầu và viết hoa chữ đầu của những chữ tiếp theo<br>
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers">
+							<code class="language-js">
+							var userName;
+							var user31;
+							</code>
+						</pre>
+					</div>
+					<p>
+						<br>
+						Có 2 ký tự đặc biệt có thể dùng để đặt tên là $ và _ <br>
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers">
+							<code class="language-js">
+							var $, _;
+							</code>
+						</pre>
+					</div>
+					<p>
+						JS phân biệt hoa thường trong tên biến <br>
+						userName và USERNAME là 2 biến hoàn toàn khác nhau.
+					</p>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Các Quy Tắc Đặt Tên Cơ Bản
+					</h3>
+					<p>
+						Nếu là những biến thông thường hoặc là không biết đặt gì thì hãy đặt là camelCase <br>
+						Nên sử dụng tên biến là tiếng anh và sử dụng cái tên ngắn, dễ hiểu và có ý nghĩa cho giá trị của
+						biến <br>
+					</p>
+					<p>
+						Đối với những hằng số hay là một biến chỉ tạo 1 lần và không thay đổi giá trị của nó nữa thì
+						người ta có thể viết hoa tất cả.
+					</p>
+					<p>
+						Đối với những biến chỉ sử dụng nội bộ (không dùng để lấy dự liệu hay lưu dữ liệu từ bên ngoài
+						nhập vào hay từ data lấy xuống) những biến này thường chỉ được dùng để tính toán và có giá trị
+						nội bộ mà thôi <br>
+						Sẽ đặt tên có dấu _ ở trước
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers">
+							<code class="language-js">
+							var firstName = 'Anna'; 
+							// userName có thể được lấy từ form 
+							// hoặc là từ dữ liệu bên ngoài thì dùng camelCase
+
+							var THEME_DARK = '#000'; 
+							// Thường là những giá trị không thay đổi, 
+							// được khởi tạo để làm việc thì dùng viết hoa
+
+							var a = 3, b = 4;
+							var _sum = a + b; 
+							// sum chỉ được dùng để hỗ trợ tính toán và 
+							// viết code dùng "nội bộ" thì sẽ đặt với _
+							var c = _sum;
+							</code>
+						</pre>
+					</div>
+				</div>
+				<div class="note-block">
+					<h3 class="title">
+						Further Reading
+					</h3>
+					<p>
+						Let and const <br>
+						Scope <br>
+						Hoisting <br>
+						Strict Mode
+					</p>
+				</div>
+			</section>
+			<!-- .Variables -->
+
+			<!-- Data Types -->
+			<section class="section">
+				<h2 class="section-title">
+					Data Types - Kiểu dữ liệu
+				</h2>
+				<p class="section-txt">
+					JS là một ngôn ngữ "dynamic typing" có nghĩa là một biến có thể nhận nhiều kiểu dữ liệu khác
+					nhau<br>
+					Tại thời điểm này là một string, một thời điểm khác lại là một number....<br>
+					Chúng ta cũng không cần khai báo kiểu dữ liệu khi khai báo biến.
+				</p>
+				<div class="block">
+					<h3 class="block-title">
+						A number - Kiểu số
+					</h3>
+					<p>
+						Kiểu số là đại diện của cả số nguyên và cả số thực <br>
+						Có thể thực hiện các phép toán như cộng trừ nhân chia trên số <br>
+						Ngoài số bình thường thì còn có thêm 3 giá trị đặc biệt khác cũng thuộc kiểu số <br>
+						Đó là: Infinity, -Infinity, NaN <br>
+						NaN có nghĩa là Not a Number, là đại diện cho một phép toán lỗi
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							alert('abc' * 30);
+							</code>
+						</pre>
+						<div class="code-body">
+							alert('abc' * 30);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						A string - Kiểu chuỗi
+					</h3>
+					<p>
+						String có nghĩa là chuỗi, thường là một đoạn chữ hoặc là một ký tự nào đó <br>
+						để định nghĩa một string thì chúng ta cần phải bỏ quote <br>
+						Hiện tại có 3 cách để định nghĩa string <br>
+						` backtick là một loại mới dùng để lồng thêm biến vào chuỗi dễ dàng hơn
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="10">
+							<code class="language-js">
+							var a = 'dau nhay don';
+							var b = "dau nhay doi";
+							var c = `ES6 backticks`;
+
+							// ES6 String Interpolation
+							var n1 = 'Memories';
+							var n2 = 'Dust';
+
+							alert(`${n1} of ${n2}`);
+							</code>
+						</pre>
+						<div class="code-body">
+							var n1 = 'Memories';
+							var n2 = 'Dust';
+
+							alert(`${n1} of ${n2}`);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						A boolean - Kiểu logic
+					</h3>
+					<p>
+						Kiểu này chỉ có 2 giá trị true hoặc là false <br>
+						Những phép so sánh cũng sẽ trả về kết quả là kiểu boolean
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="5">
+							<code class="language-js">
+							var a = 10;
+							var b = 20;
+
+							alert(a > b); // false
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 10;
+							var b = 20;
+
+							alert(a > b); // false
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						null
+					</h3>
+					<p>
+						Null có nghĩa là trống rỗng, không có gì cả, không biết ... <br>
+						Null khá là đặc biệt vì nó không phải kết quả hay các phép tính của JS tạo thành <br>
+						Null thường là do lập trình viên viết vào và thường được gán chứ không phải tự nhiên mà có <br>
+						Dùng null: <br>
+						Khi một biến có giá trị nào đó, và bằng một lý do nào đó chúng ta không muốn giá trị đó nữa,
+						muốn xóa đi thì sẽ gán nó bằng null hoặc dùng như là một cách cho người khác biết là nó không có
+						giá trị gì cả
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers">
+							<code class="language-js">
+							var name = 'Eito'; // khởi tạo name với giá trị 'Eito'
+
+							name = null; // không muốn nữa và xóa nó khỏi bộ nhớ
+							</code>
+						</pre>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						undefined
+					</h3>
+					<p>
+						undefined là một giá trị có thể sẽ được tạo ra khi viết code trong JS <br>
+						Khi bạn nhận được giá trị undefined có nghĩa là giá trị đó do code tạo ra, do chính JS nó tạo
+						ra, khác với null <br>
+						Null là do con người chủ động gán thì nó mới có <br>
+						Undefined có nghĩa là không xác định, khi bạn tạo một biến ra và không gán giá trị, thì nó sẽ có
+						giá trị undefined, khi bạn truy cập vào một phần tử không có của array hay là object thì bạn
+						cũng sẽ nhận được undefined
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="6-8">
+							<code class="language-js">
+							var a; // khai báo không gán giá trị
+							var arr = []; // khai báo một mảng
+							var user = {}; // khai báo một object
+
+							alert(a);
+							alert(arr[3]); // truy cập vào phần tử không có trong mảng
+							alert(user.name); // truy cập vào một thuộc tính không tồn tại
+							</code>
+						</pre>
+						<div class="code-body">
+							var a;
+							var arr = [];
+							var user = {};
+
+							alert(a);
+							alert(arr[3]);
+							alert(user.name);
+						</div>
+					</div>
+					<p>
+						Về cơ bản chúng ta có thể gán giá trị undefined cho một biến <br>
+						nhưng đó là điều không được khuyến cáo bởi vì cơ bản chúng ta không việc gì phải gán cho một
+						biến mang giá trị "không xác định" <br>
+						nếu muốn làm vậy thì hãy dùng null
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers" data-line="4,6">
+							<code class="language-js">
+							var a = 99;
+
+							a = undefined; // làm được nhưng không khuyến cáo
+
+							a = null; // có thể làm dc
+							</code>
+						</pre>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Object
+					</h3>
+					<p>
+						Object là đối tượng, đây là kiểu sẽ xuất hiện nhiều nhất và cũng sẽ gặp rất nhiều <br>
+						Về cơ bản thì tất cả mọi thứ đều là object <br>
+						Object là một tập hợp của các bộ key và value, key là một string còn value thì có thể là bất cứ
+						thứ gì
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers">
+							<code class="language-js">
+							var cat = {
+								 name: 'Twin',
+								 age: 1,
+								 likes: ['nothing'],
+								 dislikes: ['another cats']
+							}
+
+							// định nghĩa một object tên là cat
+							// trong cat này sẽ có các bộ key - value
+							// bộ thứ nhất
+							// key là name - value là 'Twin'
+							// bộ thứ hai
+							// key là age - value là 1
+							// tương tự với 3 và 4
+							</code>
+						</pre>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Symbols
+					</h3>
+					<p>
+						Là một kiểu mới được thêm vào tại ES6 <br>
+						Có liên quan tới Object <br>
+						Hiện giờ thì chưa cần quan tâm tới nó, nó được thêm vào chỉ để phục vụ sự đầy đủ của tài liệu
+						<br>
+						JS có 7 kiểu dữ liệu
+					</p>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Kiểm tra kiểu dữ liệu
+					</h3>
+					<p>
+						JS có một lệnh giúp chúng ta kiểm tra kiểu dữ liệu của một giá trị nào đó <br>
+						Tuy nhiên cái lệnh này, nó lại chạy không được đúng lắm <br>
+						typeof có 2 cách viết khác nhau
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 99;
+
+							typeof a; // dùng kiểu operator
+							typeof(a); // dùng kiểu function
+							</code>
+						</pre>
+					</div>
+					<p>
+						dùng typeof sẽ trả về một string
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="12,14,16,18,20">
+							<code class="language-js">
+							alert(typeof 10); // "number"
+
+							alert(typeof 'Anna'); // "string"
+
+							alert(typeof true); // "boolean"
+
+							alert(typeof undefined); // "undefined"
+
+							alert(typeof Symbol('max')); // "symbol"
+
+							alert(typeof {name: 'Kin'}); // "object"
+
+							alert(typeof window); // "object"
+
+							alert(typeof null); // "object"
+
+							alert(typeof alert); // "function"
+
+							alert(typeof [1,3,4]); // "object"							
+
+							</code>
+						</pre>
+						<div class="code-body">
+							alert(typeof 10); // "number"
+
+							alert(typeof 'Anna'); // "string"
+
+							alert(typeof true); // "boolean"
+
+							alert(typeof undefined); // "undefined"
+
+							alert(typeof Symbol('max')); // "symbol"
+
+							alert(typeof {name: 'Kin'}); // "object"
+
+							alert(typeof window); // "object"
+
+							alert(typeof null); // "object"
+
+							alert(typeof alert); // "function"
+
+							alert(typeof [1,3,4]); // "object"
+						</div>
+					</div>
+					<p>
+						hãy để ý những dòng được tô đậm <br>
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers">
+							<code class="language-js">
+							typeof {name: 'Kin'}; // "object"
+							// đây đương nhiên là một object
+
+							typeof window; // "object"
+							// đây là object có sẵn tạo bởi trình duyệt
+
+							typeof null; // "object"
+							// đây là lỗi của Javascript lỗi của hàm typeof
+
+							typeof alert; // "function"
+							// đây là một function của JS
+							// function không được tính là một kiểu trong 7 kiểu
+							// nhưng khi dùng typeof thì có thể kiểm tra được nó
+
+							typeof [1,3,4]; // "object"	
+							// đây là một mảng
+							// JS không có kiểu mảng
+							// mảng cũng chính là object
+							</code>
+						</pre>
+					</div>
+				</div>
+				<div class="note-block">
+					<h3 class="title">
+						Further Reading
+					</h3>
+					<p>
+						Check NaN <br>
+						Check Null <br>
+						Check Array <br>
+						Type checking with advance method <br>
+						Static Typing
+					</p>
+				</div>
+			</section>
+			<!-- .Data Types -->
+
+			<!-- Type Conversions -->
+			<section class="section">
+				<h2 class="section-title">
+					Type Conversions - Chuyển đổi kiểu dữ liệu
+				</h2>
+				<p>
+					Khi viết chương trình chúng ta có lúc sẽ cần phải chuyển đổi kiểu dữ liệu <br>
+					Biết cách chuyển đổi kiểu dữ liệu là một phần tất yếu <br>
+					Kiểu dữ liệu là rất quan trọng, ngoài việc biết cách chuyển đổi còn cần phải biết thêm cả việc theo
+					dõi, và phỏng đoán xem nó đang mang giá trị gì... <br>
+				</p>
+				<div class="block">
+					<h3 class="block-title">
+						Chuyển Sang String
+					</h3>
+					<p>
+						Về cơ bản chỉ cần dùng String(...)<br>
+						Hầu như tất cả mọi thứ đều có thể chuyển về string<br>
+						number, array, function .... đều có thể chuyển về string <br>
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="4">
+							<code class="language-js">
+							var a = [1,2,3,4];
+							
+							alert(String(a));
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = [1,2,3,4];
+
+							alert(String(a));
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Chuyển Sang Number
+					</h3>
+					<p>
+						Như trên, chỉ cần dùng Number() <br>
+						Những thứ không chuyển đổi thất bại thì trả về NaN
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'This is the end';
+							var b = true;
+							var c = '33';
+
+							Number(a) // NaN
+							Number(b) // 1
+							Number(c) // 33
+							</code>
+						</pre>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Chuyển Sang Boolean
+					</h3>
+					<p>
+						Dùng Boolean
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'This is the end';
+							var b = 0;
+
+							Boolean(a) // true
+							Boolean(b) // false
+							</code>
+						</pre>
+					</div>
+				</div>
+				<p>
+					Truthy và Falsy <br>
+					Một giá trị là truthy khi mà chuyển sang Boolean nó là true <br>
+					Một giá trị là falsy khi mà chuyển sang Boolean nó là false <br>
+					'' (chuỗi rỗng chứ không phải dấu cách), null, undefined, NaN, 0 --- 5 giá trị này là falsy, còn lại
+					thì là truthy
+				</p>
+				<p>
+					Đây chỉ là những cách cơ bản để chuyển đổi kiểu dữ liệu <br>
+					Thực tế khi viết chương trình và sử dụng hàm thì những hàm này cũng sẽ có trả về kiểu dữ liệu khác
+					nhau <br>
+					Hay là khi cộng một giá trị với một chuỗi thì nó cũng sẽ được chuyển về chuỗi <br>
+					Nhắc lại một lần nữa việc theo dõi và nắm vững kiểu dữ liệu là hết sức quan trọng trong việc viết
+					code <br>
+					Mỗi kiểu sẽ có hàm riêng và cũng sẽ hành xử khác nhau <br>
+				</p>
+				<div class="note-block">
+					<h3 class="title">
+						Further Reading
+					</h3>
+					<p>
+						Auto Convert Type In JS --- Coercion
+					</p>
+				</div>
+			</section>
+			<!-- .Type Conversions -->
+
+			<!-- Operator And Comparisons -->
+			<section class="section">
+				<h2 class="section-title">
+					Operator and Comparisons - Phép tính và Phép so sánh
+				</h2>
+				<p>
+					Phép tính và so sánh hoàn toàn cần thiết trong cả cuộc sống và trong lập trình cũng vậy <br>
+				</p>
+				<div class="block">
+					<h3 class="block-title">
+						Các Phép Tính
+					</h3>
+					<p>
+						= --- đây là phép gán <br>
+						+ --- phép cộng <br>
+						- --- phép trừ <br>
+						* --- phép nhân <br>
+						/ --- phép chia <br>
+						% --- chia lấy dư <br>
+						** --- lũy thừa (cẩn thận cái này không hoạt động trên IE11) <br>
+						++ --- tăng lên 1 đơn vị <br>
+						-- --- giảm xuống 1 đơn vị <br>
+						+= --- viết tắt <br>
+						++ và -- có 2 cách viết là viết trước và viết sau 2 cách viết này cũng sẽ có sự khác nhau <br>
+					</p>
+					<p>
+						Ngoài thực hiện với số JS còn cho phép thực hiện phép tính với các kiểu dữ liệu khác.<br>
+						Việc cộng 2 string là trường hợp thường được sử dụng nhất.
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'Light';
+							var b = ' and ';
+							var c = 'Dark';
+
+							a + b + c; // 'Light and Dark'
+							a + 30; // 'Light30'
+							a - 30; // NaN
+							</code>
+						</pre>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Các Phép So Sánh
+					</h3>
+					<p>
+						> --- lớn hơn <br>
+						< --- nhỏ hơn <br>
+						>= --- lớn hơn hoặc bằng <br>
+						<= --- nhỏ hơn hoặc bằng <br>
+						== --- so sánh bằng (cái này thường không để ý đến kiểu)<br>
+						!= --- ngược với cái ở trên (cái này cũng không để ý đến kiểu dữ liệu) <br>
+						=== --- so sánh tính cả kiểu dữ liệu ( đúng cả kiểu và giá trị thì sẽ trả về true )<br>
+						!== --- ngược với cái trên ( khác kiểu hoặc khác giá trị ) ( trừ khi đúng cả kiểu cả giá trị thì mới trả về false )
+					</p>
+					<p>
+						Với mọi phép so sánh và mọi kiểu dữ liệu thì Boolean ( true hoặc false ) luôn luôn là kết quả,
+						không có lỗi xảy ra <br>
+						Và chúng ta có thể gán giá trị này cho một biến như bình thường
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'Try' > 30;
+
+							alert(a) // ????;
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 'Try' > 30;
+
+							alert(a) // ????;
+						</div>
+					</div>
+					<p>
+						String sẽ được so sánh với nhau dựa vào thứ tự Unicode của nó
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							alert('b' > 'a');
+							</code>
+						</pre>
+						<div class="code-body">
+							alert('b' > 'a');
+						</div>
+					</div>
+				</div>
+				<div class="note-block">
+					<h3 class="title">
+						Further Reading
+					</h3>
+					<p>
+						Different Type Comparing <br>
+						Prefix form, postfix form
+					</p>
+				</div>
+			</section>
+			<!-- .Operator And Comparisons -->
+
+			<!-- If Else -->
+			<section class="section">
+				<h2 class="section-title">
+					Câu lệnh rẽ nhánh
+				</h2>
+				<p>
+					if else, hay câu lệnh rẽ nhánh, thường được dùng để ra quyết định trong khi lập trình <br>
+					Đôi khi chúng ta muốn thực hiện một đoạn code nào đó tùy thuộc vào điều kiện
+				</p>
+				<div class="codebox">
+					<button class="btn-play"></button>
+					<pre class="line-numbers">
+						<code class="language-js">
+						var result = confirm('Bạn có phải là robot?');
+						if ( result ) {
+							  alert('@@!^%(%*@#'); // hello in robot language 
+						} else {
+							  alert('Hello');
+						}
+						</code>
+					</pre>
+					<div class="code-body">
+						var result = confirm('Bạn có phải là robot?');
+						if ( result ) {
+							alert('@@!^%(%*@#'); // hello in robot language
+						} else {
+							alert('Hello');
+						}
+					</div>
+				</div>
+				<p>
+					Đối với trường hợp nhiều if else cũng có thể viết dc
+				</p>
+				<div class="codebox">
+					<button class="btn-play"></button>
+					<pre class="line-numbers">
+						<code class="language-js">
+						var age = prompt('Bạn bao nhiêu tuổi', 18);
+						if ( age < 10 ) {
+							  alert('Trẻ Con'); 
+						} else if ( age < 25 ) {
+							  alert('Hơi Trẻ Con');
+						} else if ( age < 35 ) {
+							  alert('Không Phải Trẻ Con');
+						} else {
+							  alert(`Tuổi Của bạn là: ${age}`);
+						}
+						</code>
+					</pre>
+					<div class="code-body">
+						var age = prompt('Bạn bao nhiêu tuổi', 18);
+						if ( age < 10 ) { alert('Trẻ Con'); } else if ( age < 25 ) { alert('Hơi Trẻ Con'); } else if (
+						age < 35 ) { alert('Không Phải Trẻ Con'); } else { alert(`Tuổi Của bạn là: ${age}`); }
+					</div> 
+				</div> 
+				<p>
+					Mọi cái bỏ vào trong dấu ( ) của if thì sẽ tự động được chuyển sang boolean <br>
+					Hay cũng có thể nói câu lệnh if là thực hiện code khi điều kiện là truthy, không thực hiện code khi điều kiện là falsy <br>
+					Lợi dụng điều này thì có nhiều người sẽ viết tắt if theo kiểu khác dễ đọc hơn <br>
+					Nếu bạn quên truthy và falsy thì hãy đọc lại phần chuyển đổi kiểu dữ liệu <br>
+				</p>
+				<p>
+					!!!!!!!!!!!! <br>
+					!!!!!!!!!!!! <br>
+					!!!!!!!!!!!! <br><br>
+					Trong những ví dụ dưới đây hãy, đoán xem thứ gì sẽ được in ra trước khi chạy
+					code.<br><br>
+					!!!!!!!!!!!! <br>
+					!!!!!!!!!!!! <br>
+					!!!!!!!!!!!! <br>
+				</p>
+				<p>
+					Take 1:
+				</p>
+				<div class="codebox">
+					<button class="btn-play"></button>
+					<pre class="line-numbers">
+						<code class="language-js">
+						// hãy đọc code và đoán xem thứ gì sẽ được in ra khi chạy code
+						var a = '';
+						if ( a ) {
+							alert('A ba ca na la ta ma');
+						} else {
+							alert('What is that');
+						}
+						</code>
+					</pre>
+					<div class="code-body">
+						// hãy đọc code và đoán xem thứ gì sẽ được in ra khi chạy code
+						var a = '';
+						if ( a ) {
+							alert('A ba ca na la ta ma');
+						} else {
+							alert('What is that');
+						}
+					</div>
+				</div>
+				<p>
+					Take 2:
+				</p>
+				<div class="codebox">
+					<button class="btn-play"></button>
+					<pre class="line-numbers">
+						<code class="language-js">
+						// hãy đọc code và đoán xem thứ gì sẽ được in ra khi chạy code
+						var a = 10;
+						var b = 10;
+						var c = a > b;
+						if ( c ) {
+							alert('a > b');
+						} else {
+							alert('a không lớn hơn b');
+						}
+						</code>
+					</pre>
+					<div class="code-body">
+						var a = 10;
+						var b = 10;
+						var c = a > b;
+						if ( c ) {
+						alert('a > b');
+						} else {
+						alert('a không lớn hơn b');
+						}
+					</div>
+				</div>
+				<p>
+					Take 3:
+				</p>
+				<div class="codebox">
+					<button class="btn-play"></button>
+					<pre class="line-numbers">
+						<code class="language-js">
+						// hãy đọc code và đoán xem thứ gì sẽ được in ra khi chạy code
+						var a = [];
+						if ( a ) {
+							alert('Magic!!!');
+						} else {
+							alert('Beyond Magic!!!');
+						}
+						</code>
+					</pre>
+					<div class="code-body">
+						var a = [];
+						if ( a ) {
+						alert('Magic!!!');
+						} else {
+						alert('Beyond Magic!!!');
+						}
+					</div>
+				</div>
+				<p>
+					Take 4:
+				</p>
+				<div class="codebox">
+					<button class="btn-play"></button>
+					<pre class="line-numbers">
+						<code class="language-js">
+						// hãy đọc code và đoán xem thứ gì sẽ được in ra khi chạy code
+						var a = ' ';
+						if ( a ) {
+							alert('Đoán Sai Rồi!!!');
+						} else {
+							alert('Không Biết Nữa!!!');
+						}
+						</code>
+					</pre>
+					<div class="code-body">
+						var a = ' ';
+						if ( a ) {
+							alert('Đoán Sai Rồi!!!');
+						} else {
+							alert('Không Biết Nữa!!!');
+						}
+					</div>
+				</div>
+				<p>
+					Take 5:
+				</p>
+				<div class="codebox">
+					<button class="btn-play"></button>
+					<pre class="line-numbers">
+						<code class="language-js">
+						// hãy đọc code và đoán xem thứ gì sẽ được in ra khi chạy code
+						if ( '%%%' / 3 ) {
+							alert('Đoán Đúng Chưa');
+						} else {
+							alert('Đoán Lại Xem');
+						}
+						</code>
+					</pre>
+					<div class="code-body">
+						// hãy đọc code và đoán xem thứ gì sẽ được in ra khi chạy code
+						if ( '%%%' / 3 ) {
+						alert('Đoán Đúng Chưa');
+						} else {
+						alert('Đoán Lại Xem');
+						}
+					</div>
+				</div>
+				<p>
+					Take 6:
+				</p>
+				<div class="codebox">
+					<button class="btn-play"></button>
+					<pre class="line-numbers">
+						<code class="language-js">
+							// hãy đọc code và đoán xem thứ gì sẽ được in ra khi chạy code
+							if ( false ) {
+								alert('How!');
+							} else {
+								alert('Why!');
+							}
+						</code>
+					</pre>
+					<div class="code-body">
+						if ( false ) {
+						alert('How!');
+						} else {
+						alert('Why!');
+						}
+					</div>
+				</div>
+				<p>
+					Take 7:
+				</p>
+				<div class="codebox">
+					<button class="btn-play"></button>
+					<pre class="line-numbers">
+						<code class="language-js">
+							// hãy đọc code và đoán xem thứ gì sẽ được in ra khi chạy code
+							if ( 1 / 3 + 3 / 'aa' ) {
+								alert('????');
+							}
+							alert('!!!!');
+						</code>
+					</pre>
+					<div class="code-body">
+						if ( 1 / 3 + 3 / 'aa' ) {
+							alert('????');
+						}
+						alert('!!!!');
+					</div>
+				</div>
+				<p>
+					Take 8:
+				</p>
+				<div class="codebox">
+					<button class="btn-play"></button>
+					<pre class="line-numbers">
+						<code class="language-js">
+						// hãy đọc code và đoán xem thứ gì sẽ được in ra khi chạy code
+						if ( 1 / 3 + 3 / '3' ) {
+							alert('????');
+						}
+						alert('!!!!');
+						</code>
+					</pre>
+					<div class="code-body">
+						if ( 1 / 3 + 3 / '3' ) {
+						alert('????');
+						}
+						alert('!!!!');
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Conditional operator "?"
+					</h3>
+					<p>
+						Nó còn có tên gọi khác là ternary operator <br>
+						Cái này là một cách viết ngắn dùng để <strong>GẮN GIÁ TRỊ</strong> <br>
+						Nó sẽ trả về một giá trị nào đó dựa vào điều kiện <br>
+						Hãy nhớ điều đó khi dùng, và hãy nhớ rằng nó không phải là if else viết tắt
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 30;
+							var b = '30';
+							var c = (a == b) ? a + 30 : 'String';
+							alert(c);
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 30;
+							var b = '30';
+							var c = (a == b) ? a + 30 : 'String';
+							alert(c);
+						</div>
+					</div>
+					<p>
+						Giải thích: <br>
+						Nếu chạy code thì nó sẽ in ra 60 <br>
+						Vì sao lại có giá trị này <br>
+						Dấu ? và : có nghĩa là gì <br>
+						Câu lệnh trên có thể viết lại như sau
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 30;
+							var b = '30';
+							var c;
+							if (a == b) {
+								c = a + 30;
+							} else {
+								c = 'String';
+							}
+							</code>
+						</pre>
+					</div>
+					<p>
+						Như này thì dễ hiểu hơn nhiều rồi <br>
+						Trở lại với ternary operator<br>
+						Để có thể hiểu được chuyện gì xảy ra thì hãy đọc như sau <br>
+						Đầu tiên hãy xét đến mục tiêu của ternary operator <br>
+						Ternary Operator sẽ TRẢ VỀ một thứ nào đó <br>
+						Vậy thì chúng ta biết rằng nó sẽ trả về và hãy tập trung vào việc làm rõ mục đích đó
+						<br>
+						Đọc từ trái sang phải, thường thì sẽ gặp cái điều kiện là đầu tiên <br>
+						Hãy làm như sau
+					</p>
+					<div class="codebox">
+						<pre class="line-numbers" data-line="4">
+							<code class="language-js">
+							var a = 30;
+							var b = '30';
+							var c = (a == b) ? a + 30 : 'String';
+
+							// tập trung vào dòng 4
+							// từ trái sang phải 
+							// var c --- khai báo một biến c
+							// = --- dấu bằng nghĩa là gán
+							// vậy thì khai báo một biến c và gán cho nó
+							// gán cho nó cái gì
+							// tiếp tục là [(a == b) ?] hãy hiểu là
+							// [a == b] PHẢI KHÔNG ??
+							// [a + 30 : 'String']
+							// Phải thì trả về [a + 30] vế trái của :
+							// : có nghĩa là không phải (else)
+							// Không phải thì trả về ['String'] vế phải của :
+
+							// Vậy thì tổng kết lại như sau
+							// khai báo c và gán nó bằng ... sau đó hỏi tiếp 
+							// [a == b] phải không --- phải thì trả về vế trái không thì trả về vế phải
+
+							// trường hợp này thì a == b là true
+							// như vậy thì vế trái sẽ dc trả về [a + 30]
+
+
+							// và dòng 4 sẽ dc hiểu là
+							// var c = a + 30;
+
+							// Clearly
+							// Like Crystal
+							</code>
+						</pre>
+					</div>
+					<p>
+						Hãy tập đọc ternary operator một vài lần nữa
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="6">
+							<code class="language-js">
+							var a = 3;
+							var b = 4;
+
+							var c = (a === b) ? a : b + 6;
+							alert(c);
+							// giá trị của c là gì ??
+							// như trên thôi
+							// gán c bằng ... a === b phải không (?) phải thì trả về vế trái [a]
+							// không phải thì trả về vế phải [b + 6]
+							// như vậy thì code trên được hiểu là
+							// var c = b + 6;
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 3;
+							var b = 4;
+
+							var c = (a === b) ? a : b + 6;
+							alert(c);
+						</div>
+					</div>
+					<p>
+						Như đã nói ở trên trên nữa so sánh sẽ tự chuyển biểu thức đó thành Boolean <br>
+						Truthy và Falsy một lần nữa
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="4">
+							<code class="language-js">
+							var a = [1,2,3];
+
+							var c = (a) ? a : 'name';
+							alert(c);
+							// cũng tương tự như trên thôi
+							// nhưng lần này thì a là truthy cho nên sẽ hiểu đoạn trên như là
+							// c = a;
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = [1,2,3];
+
+							var c = (a) ? a : 'name';
+							alert(c);
+						</div>
+					</div>
+					<p>
+						Mọi thứ trở nên phức tạp hơn nữa khi ternary operator còn có thể lồng thêm ternary
+						operator khác ở bên trong
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="6">
+							<code class="language-js">
+							var a = [1,2,3];
+
+							var c = (a[0] === 3) ? a[0] : (a[1] === 1) ? a[1] : (a[2] === 2) ? a[2] : null;
+
+							alert(c);
+
+							// một lần nữa nhé
+							// c = ... 
+							// [a[0] === 3] phải không (sai vì 1 không bằng 3) 
+							// phải thì trả về vế trái không phải thì trả về vế phải
+							// [(a[1] === 1)] được trả về 
+							// nó là một điều kiện nên check tiếp
+							// [(a[1] === 1)] phải không (sai vì 2 không bằng 1)
+							// không phải thì trả về vế nào [(a[2] === 2)]
+							// lại tiếp tục sai 
+							// cho nên sẽ trả về null
+							// vậy thì code sẽ được hiểu là
+							// var c = null;
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = [1,2,3];
+
+							var c = (a[0] === 3) ? a[0] : (a[1] === 1) ? a[1] : (a[2] === 2) ? a[2] : null;
+
+							alert(c);
+						</div>
+					</div>
+					<p>
+						Đoạn trên chuyển sang if else sẽ như nào
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = [1,2,3];
+
+							var c;
+
+							// take it easy
+
+							if ( a[0] === 3 ) {
+								c = a[0];
+							} else if (a[1] === 1) {
+								c = a[1];
+							} else if (a[2] === 2) {
+								c = a[2];
+							} else {
+								c = null;
+							}
+
+							alert(c);
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = [1,2,3];
+
+							var c;
+
+							// take it easy
+
+							if ( a[0] === 3 ) {
+							c = a[0];
+							} else if (a[1] === 1) {
+							c = a[1];
+							} else if (a[2] === 2) {
+							c = a[2];
+							} else {
+							c = null;
+							}
+
+							alert(c);
+						</div>
+					</div>
+					<p>
+						Tổng kết: <br>
+						Ternary operator thường dùng để trả về một giá trị nào đó khi kết thúc, hãy nhớ điều
+						đó <br>
+						Nếu bạn cảm thấy quá mệt với nó thì có thể viết mọi thứ bằng if else <br>
+						Lập trình viên: <br>
+						Rất thích viết ngắn, ở vai trò làm 1 người lập trình bạn phải có cả khả năng viết và
+						đọc code, bạn có thể viết bằng if else, bạn viết dc đọc hiểu, nhưng người khác viết
+						ngắn nó thì bạn sẽ gặp rắc rối khi không hiểu được <br>
+						Đây không phải chỉ là một thử thách duy nhất vì JS còn viết ngắn lại nhiều cái khác
+						nữa <br>
+						Mục đích là làm cho code gọn hơn và dễ hiểu hơn <br>
+						Mọi thứ có thể rất khó hiểu và lạ lùng ngay lần đầu gặp nhưng mà nếu nhìn nhiều đọc
+						nhiều và viết nhiều thì nó sẽ trở nên dễ dùng và dễ hiểu
+					</p>
+				</div>
+			</section>
+			<!-- .If Else -->
+
+			<!-- Logical Operator -->
+			<section class="section">
+				<h2 class="section-title">
+					Logical Operators - Toán Tử Logic
+				</h2>
+				<p>
+					Chỉ có 3 thứ là && (AND) || (OR) || !(NOT) <br>
+					Mặc dù gọi nó là logic nhưng mà kết quả trả về có thể là bất cứ thứ gì, thuộc bất kỳ type nào
+				</p>
+				<div class="block">
+					<h3 class="block-title">
+						|| toán tử HOẶC
+					</h3>
+					<p>
+						|| sẽ trả về đúng nếu như mà một trong những giá trị đó là đúng, còn lại thì trả về sai
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 3;
+							var b = 4;
+							var c = 'string';
+							
+							// be or not to be
+							if ( a > b || c !== null ) {
+							  alert('be');
+							} else {
+							  alert('not to be');
+							}
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 3;
+							var b = 4;
+							var c = 'string';
+
+							if ( a > b || c !== null ) {
+							alert('be');
+							} else {
+							alert('not to be');
+							}
+						</div>
+					</div>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var user = {
+								  name: "Liz",
+								  age: 13,
+								  human: false
+							}
+							// be or not to be
+							if ( user.human || user.age > 18 || user.name === "Admin" ) {
+							  alert('be');
+							} else {
+							  alert('not to be');	
+							}
+							</code>
+						</pre>
+						<div class="code-body">
+							var user = {
+							name: "Liz",
+							age: 13,
+							human: false
+							}
+
+							if ( user.human || user.age > 18 || user.name === "Admin" ) {
+							alert('be');
+							} else {
+							alert('not to be');
+							}
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						&& toán tử VÀ
+					</h3>
+					<p>
+						&& sẽ trả về đúng nếu tất cả là đúng, còn lại thì trả về sai
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 1;
+							var b = 2;
+							var c = 'string';
+							
+							// be or not to be
+							if ( a == 1 && b == 2 && c ) {
+							  alert('be');
+							} else {
+							  alert('not to be');
+							}
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 1;
+							var b = 2;
+							var c = 'string';
+
+							if ( a == 1 && b == 2 && c ) {
+							alert('be');
+							} else {
+							alert('not to be');
+							}
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						! toán tử NOT
+					</h3>
+					<p>
+						! sẽ trả về giá trị ngược lại của thứ được dùng lên <br>
+						Hay nói một cách đúng hơn là nếu là falsy thì trả về truthy, nếu là truthy thì trả về falsy
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 1;
+							var b = 2;
+							var c = 'string';
+							
+							// be or not to be
+							if ( a == 1 && b == 2 && !c ) {
+							  alert('be');
+							} else {
+							  alert('not to be');
+							}
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 1;
+							var b = 2;
+							var c = 'string';
+
+							if ( a == 1 && b == 2 && !c ) {
+							alert('be');
+							} else {
+							alert('not to be');
+							}
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Độ ưu tiên của các toán tử
+					</h3>
+					<p>
+						! sẽ được ưu tiên nhất && được ưu tiên tiếp theo và cuối cùng là ||
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 1 > 3;
+							var b = 2 == '2';
+							var c = false;
+							
+							// trick or treat
+							if ( !a || !!b || !c ) {
+							  alert('trick');
+							} else {
+							  alert('treat');	
+							}
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 1 > 3;
+							var b = 2 == '2';
+							var c = false;
+
+							if ( !a || !!b || !c ) {
+							alert('trick');
+							} else {
+							alert('treat');
+							}
+						</div>
+					</div>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 1 > 3;
+							var b = 2 == '2';
+							var c = false;
+							
+							// trick or treat
+							if ( a || !!!b && !c && true || false ) {
+							  alert('trick');
+							} else {
+							  alert('treat');	
+							}
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 1 > 3;
+							var b = 2 == '2';
+							var c = false;
+
+							if ( a || !!!b && !c && true || false ) {
+							alert('trick');
+							} else {
+							alert('treat');
+							}
+						</div>
+					</div>
+				</div>
+				<div class="note-block">
+					<h3 class="title">
+						Further Reading
+					</h3>
+					<p>
+						Logical operators return different type <br>
+					</p>
+				</div>
+			</section>
+			<!-- .Logical Operator -->
+
+			<!-- Loops -->
+			<section class="section">
+				<h2 class="section-title">
+					Vòng lặp trong Javascript
+				</h2>
+				<p>
+					Việc lặp qua và xử lý một đối tượng trong JS là việc rất quan trọng và không thể thiếu.
+				</p>
+				<div class="block">
+					<h3 class="block-title">
+						While loop - Vòng Lặp While
+					</h3>
+					<p>
+						Check điều kiện rồi làm một đoạn code cho tới khi điều kiện sai
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 0;
+
+							while (a < 5) {
+								  alert(a);
+								  a++;
+							}
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 0;
+
+							while (a < 5) { alert(a); a++; } 
+						</div> 
+					</div> 
+				</div> 
+				<div class="block">
+					<h3 class="block-title">
+						Do While
+					</h3>
+					<p>
+						Tương Tự như trên nhưng mà làm trước rồi check sau, cho nên cái này sẽ chạy ít nhất
+						một lần <br>
+						Hãy chú ý sự khác biệt trong 2 ví dụ bên dưới
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 1;
+							do {
+								  alert(a)
+							} while(a--)
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 1;
+							do {
+							alert(a)
+							} while(a--)
+						</div>
+					</div>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 1;
+							while (a--) {
+								  alert(a);
+							}
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 1;
+							while (a--) {
+							alert(a);
+							}
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						For Loop
+					</h3>
+					<p>
+						for chắc chắn là vòng lặp quen thuộc với nhiều người
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							for (var i = 0; i < 4; i++) {
+								  alert(i)
+							}
+							// hãy nắm rõ quy tắc
+							// var i = 0  ---   chỉ thực hiện một lần đầu vòng lặp
+							// i < 4  ---  chính là điều kiện để tiếp tục vòng lặp
+							// i++ được thực hiện sau mỗi vòng lặp
+							// {...} những thứ bên trong là body và được thực hiện tùy vào điều kiện
+							</code>
+						</pre>
+						<div class="code-body">
+							for (var i = 0; i < 4; i++) { alert(i) }
+						</div> 
+					</div> 
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							// có thể bỏ đi vài phần của vòng lặp
+							var i = 0;
+							for (; i < 4;) {
+								  alert(i);
+								  i++;
+							}
+							</code>
+						</pre>
+						<div class="code-body">
+							var i = 0;
+							for (; i < 4;) { alert(i); i++; } 
+						</div> 
+					</div> 
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							// hoặc bỏ đi tất cả để tạo ra vòng lặp vô hạn
+							// click the button .... or else
+							var i = 0;
+							for (; ;) {
+								  alert(i);
+								  i++;
+							}
+							</code>
+						</pre>
+						<div class="code-body">
+							var i = 0;
+							for (; ;) {
+							alert(i);
+							i++;
+							}
+						</div>
+					</div>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							// vòng lặp này làm gì ???
+							for ( var i = 10, j = 0 ; i - j ; i--, j++ ) {
+								 alert(i + j);
+							}
+							</code>
+						</pre>
+						<div class="code-body">
+							for ( var i = 10, j = 0 ; i - j ; i--, j++ ) {
+							alert(i + j);
+							}
+						</div>
+					</div>
+				</div>
+				<div class="note-block">
+					<h3 class="title">
+						Further Reading
+					</h3>
+					<p>
+						Break, continue in for loop<br>
+						Loop can have label <br>
+						The "switch" statement <br>
+						ES6: for in, for of
+					</p>
+				</div>
+			</section>
+			<!-- .Loops -->
+
+			<!-- Function -->
+			<section class="section">
+				<h2 class="section-title">
+					Function - hàm
+				</h2>
+				<p>
+					Function là khái niệm rất đặc trưng trong JS. <br>
+					Về cơ bản function là một đoạn code có thể dùng thực hiện đi thực hiện lại một hành động nào đó <br>
+					Ngoài một đoạn code thì function còn mang rất nhiều các giá trị đặc trưng khác trong JS, ngoài những
+					function chúng ta tạo ra, JS còn có rất nhiều function đã có sẵn trong ngôn ngữ
+				</p>
+				<div class="block">
+					<h3 class="block-title">
+						Khai báo function
+					</h3>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							function a() {
+							  alert('gọi function alert trong function a');
+							}
+							// a là function dc tạo ra
+							// alert là function đã có sẵn
+							</code>
+						</pre>
+						<div class="code-body">
+							function a() {
+							alert('gọi function alert trong function a');
+							}
+						</div>
+					</div>
+					<p>
+						Vì sao function trên không chạy <br>
+						Vì đây chỉ là khai báo function <br>
+						Muốn chạy một function thì phải dùng ký hiệu là 2 dấu ngoặc đơn
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							// a là function dc tạo ra
+							// alert là function đã có sẵn
+							function a() {
+							  alert('gọi function alert trong function a');
+							}
+							a();
+							</code>
+						</pre>
+						<div class="code-body">
+							function a() {
+							alert('gọi function alert trong function a');
+							}
+							a();
+						</div>
+					</div>
+					<p>
+						Những gì được khai báo trong một function thì chỉ tồn tại bên trong function đó <br>
+						Đây gọi là local variable
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="6,8,10">
+							<code class="language-js">
+							function teddyBear() {
+							  // bearName chỉ tồn tại trong function này
+							  var bearName = 'Purple Bear';
+
+							  alert(bearName); // in ra tên
+							}
+							teddyBear(); // chạy function
+
+							alert(bearName); // bearName không tồn tại ngoài đây, sẽ gây lỗi
+							</code>
+						</pre>
+						<div class="code-body">
+							function teddyBear() {
+							var bearName = 'Purple Bear';
+
+							alert(bearName);
+							}
+							teddyBear();
+
+							try {
+							alert(bearName);
+							} catch(e) {
+							alert(e);
+							}
+						</div>
+					</div>
+					<p>
+						Function có quyền truy cập vào những biến ở bên ngoài outer variables
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var prefix = "Hello";
+							function showMessage() {
+							  var name = "Anna";
+							  
+							  alert(prefix + ' ' + name);  // name ở trong, prefix ở ngoài
+							  // đều có quyền truy cập
+							}
+							showMessage();
+
+							// thay đổi biến
+							prefix = "Bye";
+							showMessage();
+							</code>
+						</pre>
+						<div class="code-body">
+							var prefix = "Hello";
+							function showMessage() {
+							var name = "Anna";
+
+							alert(prefix + ' ' + name);
+							}
+							showMessage();
+
+							prefix = "Bye";
+							showMessage();
+						</div>
+					</div>
+					<p>
+						Ưu tiên cho biến local thay vì biến outer
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="7,10,14">
+							<code class="language-js">
+							var x = 'i dont know';
+							
+							function a(){
+								  var x = 'i know';
+
+								  alert(x); // ???
+							}
+
+							a();  // ???
+
+							x = 'hello';
+
+							a();  // ???
+							</code>
+						</pre>
+						<div class="code-body">
+							var x = 'i dont know';
+
+							function a(){
+							var x = 'i know';
+
+							alert(x); // ???
+							}
+
+							a(); // ???
+
+							x = 'hello';
+
+							a(); // ???
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Parameters - Đầu vào của một function
+					</h3>
+					<p>
+						Chúng ta có thể đưa data vào trong một function thông qua đầu vào <br>
+						Khi gọi một function có đầu vào thì phải bỏ biến vào giữa 2 dấu ngoặc đơn
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="6">
+							<code class="language-js">
+							function addTwo(a, b) {
+								  alert(`${a} + ${b} = ${a + b}`);
+							}
+
+							addTwo(1, 2);
+							</code>
+						</pre>
+						<div class="code-body">
+							function addTwo(a, b) {
+							alert(`${a} + ${b} = ${a + b}`);
+							}
+
+							addTwo(1, 2);
+						</div>
+					</div>
+					<p>
+						return statement <br>
+						Ngoài đầu vào function còn có thể trả về một giá trị khác
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="8">
+							<code class="language-js">
+							function addTwo(a, b) {
+								  a += 10;
+								  b += 10;
+							}
+
+							
+							var x = addTwo(1, 2); // dòng này có nghĩa là gọi function
+							// nó trả về cái gì thì gán vào x
+							alert(x + 3);
+							</code>
+						</pre>
+						<div class="code-body">
+							function addTwo(a, b) {
+							a += 10;
+							b += 10;
+							}
+
+							var x = addTwo(1, 2);
+							alert(x + 3);
+						</div>
+					</div>
+					<p>
+						Có return statement
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="6, 9">
+							<code class="language-js">
+							function addTwo(a, b) {
+								  a += 10;
+								  b += 10;
+
+								  return a + b;
+							}
+
+							var x = addTwo(1, 2); // dòng này có nghĩa là gọi function
+							// nó trả về cái gì thì gán vào x
+							alert(x + 3);
+							</code>
+						</pre>
+						<div class="code-body">
+							function addTwo(a, b) {
+							a += 10;
+							b += 10;
+
+							return a + b;
+							}
+
+							var x = addTwo(1, 2);
+							alert(x + 3);
+						</div>
+					</div>
+					<p>
+						Return sẽ lập tức kết thúc một function và những thứ sau đó không chạy nữa <br>
+						Sẽ không có lỗi nhưng mà bạn sẽ nhận được một warning ở console
+					</p>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Đặt tên một function
+					</h3>
+					<p>
+						Một function thường làm một hành động nào đó cho nên tên của nó sẽ thường là động từ để khi
+						người khác đọc vào có thể hiểu được thứ mà nó làm. <br>
+						Một function - Một hành động. <br>
+						Không nên để một function làm quá nhiều việc
+					</p>
+				</div>
+			</section>
+			<!-- .Function -->
+
+			<!-- Advance Function -->
+			<section class="section">
+				<h3 class="section-title">
+					Advance Function
+				</h3>
+				<p>
+					Function kéo theo nó rất nhiều khái niệm riêng biệt nữa <br>
+					Dưới đây chỉ là một số khái niệm có thể gặp tới
+				</p>
+				<div class="block">
+					<h3 class="block-title">
+						Scope
+					</h3>
+					<p>
+						Về cơ bản một function chỉ có thể truy cập vào nó hoặc những thứ bên ngoài <br>
+						Không thể truy cập những thứ không nằm trong phạm vi của nó
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="6,7">
+							<code class="language-js">
+							// x và y được KHAI BÁO bên trong a
+							// cho nên chỉ có thể truy cập vào nó khi ở trong a
+							// ở ngoài hay là ở trong 1 function khác thì không thể
+							function a() {
+								  var x = 30;
+								  var y = 40;
+
+								  alert(x + y);
+							}
+
+							function b() {
+								  alert(x + y);
+							}
+
+							a();
+							b();
+							</code>
+						</pre>
+						<div class="code-body">
+							function a() {
+							var x = 30;
+							var y = 40;
+
+							alert(x + y);
+							}
+
+							function b() {
+							alert(x + y);
+							}
+
+							a();
+							try {
+							b()
+							} catch(e) {
+							alert(e);
+							}
+						</div>
+					</div>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="4,5">
+							<code class="language-js">
+							// x và y được KHAI BÁO bên ngoài
+							// cả a và b đều có quyền truy cập
+							var x = 30;
+							var y = 40;
+							
+							function a() {
+								  alert(x + y);
+							}
+
+							function b() {
+								  alert(x + y);
+							}
+							a();
+							b();
+							</code>
+						</pre>
+						<div class="code-body">
+							var x = 30;
+							var y = 40;
+
+							function a() {
+							alert(x + y);
+							}
+
+							function b() {
+							alert(x + y);
+							}
+							a();
+							b();
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Lexical Scope
+					</h3>
+					<p>
+						Function sẽ "NHỚ" nơi mà nó được sinh ra (khai báo) <br>
+						Và phạm vi của nó cũng sẽ tính từ đó
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="10, 17">
+							<code class="language-js">
+							function a() {
+								  var x = 30;
+								  var y = 40;
+
+								  alert(x + y);
+								  // lần này không gọi b ở ngoài mà gọi trong a
+								  // trong đây x và y tồn tại
+								  // cho nên về lý thuyết mà nói thì b sẽ truy cập được vào x và y
+								  b();
+							}
+
+							function b() {
+								  alert(x + y);
+							}
+
+							a();
+							</code>
+						</pre>
+						<div class="code-body">
+							function a() {
+							var x = 30;
+							var y = 40;
+
+							alert(x + y);
+							try {
+							b();
+							} catch(e) {
+							alert(e);
+							}
+							}
+
+							function b() {
+							alert(x + y);
+							}
+
+							a();
+						</div>
+					</div>
+					<p>
+						Tại sao lại gặp lỗi ???????????????? <br>
+						<br><br>
+						Vì b được KHAI BÁO bên ngoài a <br>
+						Phạm vi scope tính từ nơi mà function được khai báo <br>
+						Không tính từ nơi mà function được gọi
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							function a() {
+								  var x = 30;
+								  var y = 40;
+
+								  alert(x + y);
+								  // lần này chúng ta khai báo b ở trong a
+								  // mọi thứ đều ổn
+								  function b() {
+									  	  alert(x + y);
+								  }
+								  b();
+							}
+
+							a();
+
+							b(); // trừ việc không thể gọi b ngoài này nữa
+							// vì b giờ chỉ tồn tại trong a
+							</code>
+						</pre>
+						<div class="code-body">
+							function a() {
+							var x = 30;
+							var y = 40;
+
+							alert(x + y);
+							function b() {
+							alert(x + y);
+							}
+							b();
+							}
+
+							a();
+							try {
+							b();
+							} catch(e) {
+							alert(e);
+							}
+						</div>
+					</div>
+					<p>
+						Mọi thứ sẽ được học kỹ hơn về sau này
+					</p>
+				</div>
+				<div class="note-block">
+					<h3 class="title">
+						Further Reading
+					</h3>
+					<p>
+						Scope <br>
+						Lexical Scope <br>
+						Scope Chain <br>
+						Execution Context <br>
+						Callstack <br>
+						Lexical 'this' <br>
+						Arrow function <br>
+						Pure function <br>
+						Higher order function <br>
+						CLOSURE!!!!!!! <br>
+						....
+					</p>
+				</div>
+			</section>
+			<!-- .Advance Function -->
+
+			<!-- Object -->
+			<section class="section">
+				<h2 class="section-title">
+					Object - Đối tượng
+				</h2>
+				<p>
+					JS có 7 type thì 6 trong số đó gọi là "primitive" bởi vì tụi nó chỉ mang một giá trị duy nhất mà
+					thôi. <br>
+					Object là một kiểu dữ liệu dùng để lưu trữ những thứ phức tạp hơn và lưu trữ có hệ thống hơn. <br>
+					Object tồn tại ở rất nhiều nơi trong JS, cho nên cần phải hiểu nó trước khi đi vào sâu hơn. <br>
+					Để hiểu thì object chỉ là một tập hợp của nhiều cặp key-value <br>
+					key thì thường là string <br>
+					value thì có thể là tất cả mọi thứ
+				</p>
+				<div class="codebox">
+					<pre class="line-numbers">
+						<code class="language-js">
+						var user = {
+							  name: "Max",
+							  age: 14,
+							  gender: "Male",
+							  family: {
+								    fatherName: "Maximus",
+								    motherName: "Minimus"
+							  },
+							  likes: ['eat', 'sleep', 'playing game']
+						}
+						</code>
+					</pre>
+				</div>
+				<p>
+					Ở trên là một ví dụ của object <br>
+					Object này có tên là user <br>
+					Trong object này có một key (hay còn gọi là prop ( property - thuộc tính)) là name <br>
+					value của name là "Max" <br>
+					tương tự với những thứ khác
+				</p>
+				<p>
+					dễ hiểu hơn thì user (người dùng này) có tên là Max, 14 tuổi, giới tính là nam, gia đình có tên cha
+					là ... tên mẹ là ... sở thích của người này là .....
+				</p>
+				<div class="block">
+					<h3 class="block-title">
+						The Dot Notation - dấu chấm "."
+					</h3>
+					<p>
+						Thường dùng để "đọc" dữ liệu của một thuộc tính nào đó trong object
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="5">
+							<code class="language-js">
+							var hero = {
+								  name: "Spider Man"
+							}
+							alert(hero.name);
+							// đọc thuộc tính name của object hero
+							// hay có thể nói là lấy giá trị của name(key) trong object hero 
+							</code>
+						</pre>
+						<div class="code-body">
+							var hero = {
+							name: "Spider Man"
+							}
+							alert(hero.name);
+						</div>
+					</div>
+					<p>
+						Chúng ta hoàn toàn có thể gán vào object một thuộc tính bất kỳ <br>
+						Hoặc là xóa thuộc tính cũ <br>
+						Hoặc là khi đè lên thuộc tính cũ
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							// khởi tạo một object với tên hero, có thuộc tính là name
+							var hero = {
+								  name: "Spider Man"
+							}
+							
+							alert(hero.name); // lấy giá trị của name
+
+							alert(hero.age); // lấy giá trị của age --- không có thì nó là undefined
+
+							hero.age = 16; // gán 16 vào thuộc tính age của hero
+
+							alert(hero.age); // giờ đã có giá trị
+
+							hero.name = "Iron Man";
+
+							alert(hero.name); // đã đè giá trị cũ
+
+							delete hero.name; // xóa tên
+
+							alert(hero.name); // đã bị xóa 
+							
+							</code>
+						</pre>
+						<div class="code-body">
+							var hero = {
+							name: "Spider Man"
+							}
+
+							alert(hero.name);
+
+							alert(hero.age);
+
+							hero.age = 16;
+
+							alert(hero.age);
+
+							hero.name = "Iron Man";
+
+							alert(hero.name);
+
+							delete hero.name;
+
+							alert(hero.name);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Bracket Notation - dấu ngoặc vuông "[]"
+					</h3>
+					<p>
+						Dấu ngoặc vuông có phần lợi hại hơn dấu chấm
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var myPet = {
+								  type: "Cat",
+								  name: "Igni"
+							}
+
+							myPet.age = 3;  // gán thuộc tính mới cho myPet
+
+							alert(myPet.age);
+
+							myPet['color'] = "ghostwhite"; // gán thuộc tính bằng bracket
+
+							alert(myPet['color']);
+
+							// extend
+
+							// tên có dấu cách
+
+							myPet['meo meo'] = "moe moe"; // gán thuộc tính có dấu cách
+
+							alert(myPet['meo meo']);
+
+							//  myPet."meo meo"; // không làm được đâu
+
+							// lấy key từ biến
+							// giả sử muốn tạo
+							/*
+							myPet {
+								???: ????
+							}
+							?? là giá trị người dùng nhập vào
+							*/
+							var key = "likes"; // nhập vào likes
+							var value = ['nothing']; // nhập vào ['nothing']
+
+							myPet.key = value // ??? --- Có làm được không
+
+							// được nhưng mà nhầm
+							alert(myPet.likes) // ???
+
+							// --- [] <= dùng cái này
+
+							myPet[key] = value;
+
+							alert(myPet.likes) // ???
+
+							key = 'dont likes'; // đổi giá trị
+							value = 'another cats'; // đổi giá trị
+
+							myPet[key] = value;
+
+							alert(myPet['dont likes']) // ???
+
+
+							// chính vì thế mà [] thường được dùng với biến
+
+							alert(myPet.key) // ?? in ra giá trị nào ??
+							alert(myPet[key])  // ?? in ra nào gía trị ??
+							alert(myPet['key'])  // ?? in ra trị nào giá ??
+
+							</code>
+						</pre>
+						<div class="code-body">
+							var myPet = {
+							type: "Cat",
+							name: "Igni"
+							}
+
+							myPet.age = 3;
+
+							alert(myPet.age);
+
+							myPet['color'] = "ghostwhite";
+
+							alert(myPet['color']);
+
+							myPet['meo meo'] = "moe moe";
+
+							alert(myPet['meo meo']);
+
+							var key = "likes";
+							var value = ['nothing'];
+
+							myPet.key = value;
+
+							alert(myPet.likes);
+
+
+							myPet[key] = value;
+
+							alert(myPet.likes)
+
+							key = 'dont likes';
+							value = 'another cats';
+
+							myPet[key] = value;
+
+							alert(myPet['dont likes'])
+
+							alert(myPet.key);
+							alert(myPet[key]);
+							alert(myPet['key']);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						The for ... in loop
+					</h3>
+					<p>
+						For in loop là một vòng lặp dùng để lặp qua object <br>
+						Nó không lặp qua value mà lặp qua các key
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="13">
+							<code class="language-js">
+							var obj = {
+								  color: 'Crimson',
+								  number: 30,
+								  theme: 'Dracula',
+								  data: {
+									    abc: 'ABC',
+									    xyz: 'XYZ'
+								  }
+							}
+
+							for (let key in obj) {
+								  alert(key);
+							}
+							</code>
+						</pre>
+						<div class="code-body">
+							var obj = {
+							color: 'Crimson',
+							number: 30,
+							theme: 'Dracula',
+							data: {
+							abc: 'ABC',
+							xyz: 'XYZ'
+							}
+							}
+
+							for (let key in obj) {
+							alert(key);
+							}
+						</div>
+					</div>
+					<p>
+						Việc lấy value cũng rất dễ dàng khi có key
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var obj = {
+								  color: 'Crimson',
+								  number: 30,
+								  theme: 'Dracula',
+								  data: {
+									    abc: 'ABC',
+									    xyz: 'XYZ'
+								  }
+							}
+
+							for (let key in obj) {
+								  alert(obj[key]);
+							}
+							</code>
+						</pre>
+						<div class="code-body">
+							var obj = {
+							color: 'Crimson',
+							number: 30,
+							theme: 'Dracula',
+							data: {
+							abc: 'ABC',
+							xyz: 'XYZ'
+							}
+							}
+
+							for (let key in obj) {
+							alert(obj[key]);
+							}
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Copied by reference
+					</h3>
+					<p>
+						Đối với các "primitive" (string, number, boolean...) thì khi copy nó sẽ copy "giá trị". <br>
+						Đối với object thì khi chúng ta copy như nó sẽ không copy giá trị mà sẽ copy bởi reference.
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'Pink'; // gán Pink cho a
+							var b = a; // gán b cho a
+
+							alert(a); // check giá trị của a
+							alert(b); // check giá trị của b
+
+							// primitive copy bởi giá trị, cho nên a và b sẽ có giá trị riêng biệt
+							// hãy thử thay đổi b
+
+							b = 'Blue'; // gán Blue cho b
+
+							alert(a); // check giá trị của a
+							alert(b); // check giá trị của b
+
+							a = 'Yellow'; // gán Yellow cho a
+
+							alert(a); // check giá trị của a
+							alert(b); // check giá trị của b
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 'Pink';
+							var b = a;
+
+							alert(a);
+							alert(b);
+
+							b = 'Blue';
+
+							alert(a);
+							alert(b);
+
+							a = 'Yellow';
+
+							alert(a);
+							alert(b);
+						</div>
+					</div>
+					<p>
+						Đối với object thì sẽ có sự khác biệt
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="9,10">
+							<code class="language-js">
+							var objA = {
+								  name: "ABC",
+								  age: 12
+							}
+							var objB = objA; // copy objA
+							objB.color = 'Hotpink'; // thêm thuộc tính vào objB
+
+							alert(objB.color); // OK
+							alert(objA.color); // WHY?
+							</code>
+						</pre>
+						<div class="code-body">
+							var objA = {
+							name: "ABC",
+							age: 12
+							}
+							var objB = objA; // copy object b
+							objB.color = 'Hotpink'; // thêm thuộc tính vào objB
+
+							alert(objB.color); // OK
+							alert(objA.color); // WHY?
+						</div>
+					</div>
+					<p>
+						Ở trên chúng ta chỉ add thêm thuộc tính cho objB mà không hề add thêm thuộc tính cho objA. <br>
+						Nhưng cả hai đều có thuộc tính này. <br>
+						Đây là ví dụ của reference, cả hai giá trị objB và objA đều trỏ tới một object duy nhất mà thôi,
+						không tạo ra 2 object khác nhau mà là trỏ tới cùng một object
+					</p>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Compare By Reference
+					</h3>
+					<p>
+						Ví dụ trên là ví dụ của việc copy by reference. <br>
+						Khi so sánh thì object cũng hoạt động như vậy. <br>
+						Hai object là bằng nhau nếu cả 2 đều có cùng reference (đều trỏ tới một object). <br>
+						Còn lại thì 2 object sẽ khác nhau
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var objA = {
+								  name: "chicken"
+							}
+
+							var objB = objA;
+							alert(objB === objA); // cả hai cùng trỏ đến một object duy nhất
+							</code>
+						</pre>
+						<div class="code-body">
+							var objA = {
+							name: "chicken"
+							}
+
+							var objB = objA;
+							alert(objB === objA);
+						</div>
+					</div>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var objA = {
+								  name: "chicken"
+							}
+							var objB = {
+								  name: "chicken"
+							}
+
+							alert(objB === objA); // hai object khác nhau 
+							</code>
+						</pre>
+						<div class="code-body">
+							var objA = {
+							name: "chicken"
+							}
+							var objB = {
+							name: "chicken"
+							}
+
+							alert(objB === objA);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">Clone Object</h3>
+					<p>
+						Vậy thì gán sẽ tạo ra object giống nhau <br>
+						Trong trường hợp chúng ta muốn tạo ra một object giống như vậy, như là một bản clone thì chúng
+						ta cũng có thể
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var objA = {
+								  name: "chicken"
+							}
+
+							var objB; // tạo ra biến objB
+
+							Object.assign(objB, objA); // làm thế này sẽ copy toàn bộ property trong objA sang objB 
+
+							objB.name = "dragon";
+
+							alert(objB.name);
+							alert(objA.name);
+							</code>
+						</pre>
+						<div class="code-body">
+							var objA = {
+							name: "chicken"
+							}
+
+							var objB = {}; // Khởi tạo objB với object rỗng
+
+							Object.assign(objB, objA); // làm thế này sẽ copy toàn bộ property trong objA sang objB
+
+							objB.name = "dragon";
+
+							alert(objB.name);
+							alert(objA.name);
+						</div>
+					</div>
+				</div>
+				<div class="note-block">
+					<h3 class="title">
+						Further Reading
+					</h3>
+					<p>
+						Shallow Copy <br>
+						Garbage Collection <br>
+						Symbol Type
+					</p>
+				</div>
+			</section>
+			<!-- .Object -->
+
+			<!-- Object Method, "this" keyword -->
+			<section class="section">
+				<h3 class="section-title">
+					Object Method, "this" keyword
+				</h3>
+				<p>
+					Nếu một value của object là một function thì function đó được gọi là method (phương thức) của object
+					đó
+				</p>
+				<div class="codebox">
+					<button class="btn-play"></button>
+					<pre class="line-numbers">
+						<code class="language-js">
+						var user = {
+							  name: "Ultimate",
+							  sayName: function() {
+								    alert('Hello');
+							  }
+						}
+						
+						// giá trị trong sayName là một function
+						// do đó sayName là một phương thức của user
+						user.sayName(); // gọi phương thức sayName của user
+						</code>
+					</pre>
+					<div class="code-body">
+						var user = {
+						name: "Ultimate",
+						sayName: function() {
+						alert('Hello');
+						}
+						}
+						user.sayName();
+					</div>
+				</div>
+				<p>
+					Hãy chắc chắn ràng bạn phân biệt giữa việc "GỌI" và "ĐỌC"
+				</p>
+				<div class="codebox">
+					<button class="btn-play"></button>
+					<pre class="line-numbers">
+						<code class="language-js">
+						var user = {
+							  name: "Ultimate",
+							  sayName: function() {
+								    alert('Hello');
+							  }
+						}
+						
+						alert(user.sayName); // đọc user.sayName, lấy dữ liệu trong đó
+						alert(user.name);  // đọc user.name, lấy dữ liệu trong đó
+						user.sayName(); // user.sayName là một hàm cho nên có thể gọi nó bằng dấu ()
+						user.name(); // ???
+						</code>
+					</pre>
+					<div class="code-body">
+						var user = {
+						name: "Ultimate",
+						sayName: function() {
+						alert('Hello');
+						}
+						}
+
+						alert(user.sayName); // đọc user.sayName và lấy dữ liệu trong đó
+						alert(user.name); // đọc user.name và lấy dữ liệu trong đó
+						user.sayName(); // user.sayName là một hàm cho nên có thể gọi nó bằng dấu ()
+						try {
+						user.name(); // ???
+						} catch(e) {
+						alert(e);
+						}
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						The "this" keyword
+					</h3>
+					<p>
+						Một trong những khái niệm khó hiểu và dễ nhầm lẫn bậc nhất của JS. <br>
+						"this" keyword. <br>
+						this có nghĩa là "cái này", nó được dùng để trỏ tới một giá trị nào đó trong JS. <br>
+						Hãy đi vào ví dụ để có thể hiểu một ít về khái niệm đa nhân cách này
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var user = {
+								  name: "Ultimate",
+								  sayName: function() {
+									    // hãy tưởng tượng trong function này bạn muốn in ra tên của object này
+									    // chúng ta có thể làm như sau
+									    alert(user.name);
+								  }
+							}
+							
+							user.sayName();
+							</code>
+						</pre>
+						<div class="code-body">
+							var user = {
+							name: "Ultimate",
+							sayName: function() {
+							alert(user.name);
+							}
+							}
+
+							user.sayName();
+						</div>
+					</div>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							// tưởng tưởng nếu có object khác nhau thì sau
+							// dùng cách cũ nhưng đổi tên
+							var user = {
+								  name: "Ultimate",
+								  sayName: function() {
+									    alert(user.name);
+								  }
+							}
+
+							var user2 = {
+								  name: "Ultimate",
+								  sayName: function() {
+									    alert(user2.name);
+								  }
+							}
+							
+							user.sayName();
+							user2.sayName();
+							</code>
+						</pre>
+						<div class="code-body">
+							var user = {
+							name: "Ultimate",
+							sayName: function() {
+							alert(user.name);
+							}
+							}
+
+							var user2 = {
+							name: "Ultimate",
+							sayName: function() {
+							alert(user2.name);
+							}
+							}
+
+							user.sayName();
+							user2.sayName();
+						</div>
+					</div>
+					<p>
+						Tiếp tục hãy tưởng tượng đến việc có 100, 1000 object tương tự như nhau, và những object này đều
+						có những phương thức giống nhau <br>
+						Ví dụ như một phần mềm cần lưu trữ dữ liệu của rất nhiều người (user), mỗi user này đều có khả
+						năng login, logout, chat, saySomething... (hàng trăm phương thức), và tưởng tượng đến việc viết
+						từng user ra, thay tên cho hàng trăm phương thức đó <br>
+						..........................
+						<br>
+						Thường thì user sẽ chỉ khác nhau về tên, tuổi ... (thông tin) <br>
+						Còn những phương thức sẽ giống nhau, cho nên người ta sẽ muốn dùng lại những phương thức này.
+						<br>
+						Hãy thử dùng lại.
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="12">
+							<code class="language-js">
+							var user1 = {
+								  name: "Dandelion"
+							}
+							// .... vài user nữa
+							var user10 = {
+								  name: "Lily"
+							}
+							
+							// tạo ra phương thức
+							function sayName() {
+								  alert(user1.name); // ???
+							}
+
+							user1.sayName = sayName; // tạo property mới
+							user10.sayName = sayName; // tạo property mới
+							user1.sayName();
+							user10.sayName();
+							</code>
+						</pre>
+						<div class="code-body">
+							var user1 = {
+							name: "Dandelion"
+							}
+							// .... vài user nữa
+							var user10 = {
+							name: "Lily"
+							}
+
+							// tạo ra phương thức
+							function sayName() {
+							alert(user1.name); // ???
+							}
+
+							user1.sayName = sayName; // tạo property mới
+							user10.sayName = sayName; // tạo property mới
+							user1.sayName();
+							user10.sayName();
+						</div>
+					</div>
+					<p>
+						Cả hai đều in ra tên của user1 vì trong function chúng ta đã viết trực tiếp ra <br>
+						Hãy thử với "this"
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="12">
+							<code class="language-js">
+							var user1 = {
+								  name: "Dandelion"
+							}
+							// .... vài user nữa
+							var user10 = {
+								  name: "Lily"
+							}
+							
+							// tạo ra phương thức
+							function sayName() {
+								  alert(this.name); 
+							}
+
+							user1.sayName = sayName; // tạo property mới
+							user10.sayName = sayName; // tạo property mới
+							user1.sayName();
+							user10.sayName();
+							</code>
+						</pre>
+						<div class="code-body">
+							var user1 = {
+							name: "Dandelion"
+							}
+							// .... vài user nữa
+							var user10 = {
+							name: "Lily"
+							}
+
+							// tạo ra phương thức
+							function sayName() {
+							alert(this.name); // ???
+							}
+
+							user1.sayName = sayName; // tạo property mới
+							user10.sayName = sayName; // tạo property mới
+							user1.sayName();
+							user10.sayName();
+						</div>
+					</div>
+					<p>
+						Vậy thì "this" là gì. <br>
+						Giá trị của "this" chỉ được định nghĩa khi gọi function, hay nói cách khác, thông qua cách mà
+						function đó được gọi, chứ không phải tại nơi mà nó được viết. <br>
+						Khi gọi this với như là phương thức của một object, thì thông thường this lúc này sẽ trỏ tới
+						"OBJECT ĐỨNG TRƯỚC DẤU "." " (nếu gọi với dấu [] thì cũng vậy)
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="5,9,17,20">
+							<code class="language-js">
+							var user1 = {
+								  name: "Morning Glory",
+								  sayName: function(){
+									    alert(this.name); // viết this trong đây không có nghĩa this là user1
+								  }
+							}
+
+							var user1SayName = user1.sayName;
+
+							var user2 = {
+								  name: "Sunflower",
+								  color: "Yellow"
+							}
+
+							function sayColor() {
+								  alert(this.color); // viết this trong 1 function bình thường
+							}
+
+							user2.sayColor = sayColor;
+
+							// Hãy gọi theo các cách khác nhau
+							user1.sayName(); // object trước dấu .
+							user1SayName();
+							sayColor();
+							user2["sayColor"](); // object trước dấu []
+							</code>
+						</pre>
+						<div class="code-body">
+							var user1 = {
+							name: "Morning Glory",
+							sayName: function(){
+							alert(this.name);
+							}
+							}
+
+							var user1SayName = user1.sayName;
+
+							var user2 = {
+							name: "Sunflower",
+							color: "Yellow"
+							}
+
+							function sayColor() {
+							alert(this.color);
+							}
+
+							user2.sayColor = sayColor;
+
+							user1.sayName();
+							user1SayName();
+							sayColor();
+							user2.sayColor();
+						</div>
+					</div>
+					<p>
+						Đây chính là hiện tượng "mất" this. <br>
+						Hiện tượng này xảy ra vì this sẽ dc xác định qua cái cách nó được gọi chứ không phải xác định
+						trong nơi viết nó. <br>
+						Để tránh lỗi này thì cần phải gọi những phương thức thông qua object.
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers" data-line="28-39">
+							<code class="language-js">
+							// this sẽ trỏ tới object đứng trước dấu "."
+							// hãy xem xét các ví dụ sau
+							var human = {
+								  name: "Zip",
+								  father: {
+									    name: "Zac"
+								  },
+								  mother: {
+									    name: "Voz"
+								  }
+							}
+
+							var human2 = {
+								  name: "Zov",
+								  father: {
+									    name: null
+								  },
+								  mother: {
+									    name: "null
+								  }
+							}
+
+							function sayName() {
+							 	  alert(this.name);
+							}
+
+							human.sayName = sayName;
+							human.father.sayName = sayName;
+							human2.mother.sayName = sayName;
+							human2.sayName = sayName;
+
+							human.sayName();
+							human.father.sayName();
+							human.mother.sayName();
+
+							human2.mother.sayName();
+							human2.sayName();
+							human2.father.sayName();
+							
+							</code>
+						</pre>
+						<div class="code-body">
+							// this sẽ trỏ tới object đứng trước dấu "."
+							// hãy xem xét các ví dụ sau
+							var human = {
+							name: "Zip",
+							father: {
+							name: "Zac"
+							},
+							mother: {
+							name: "Voz"
+							}
+							}
+
+							var human2 = {
+							name: "Zov",
+							father: {
+							name: null
+							},
+							mother: {
+							name: null
+							}
+							}
+
+							function sayName() {
+							alert(this.name);
+							}
+
+							human.sayName = sayName;
+							human.father.sayName = sayName;
+							human2.mother.sayName = sayName;
+							human2.sayName = sayName;
+
+							try {
+							human.sayName();
+							human.father.sayName();
+							human.mother.sayName();
+							} catch(e) {
+							alert(e);
+							}
+
+							try {
+							human2.mother.sayName();
+							human2.sayName();
+							human2.father.sayName();
+							} catch(e) {
+							alert(e);
+							}
+						</div>
+					</div>
+				</div>
+				<div class="note-block">
+					<h3 class="title">
+						Note:
+					</h3>
+					<p>
+						Đây không phải là toàn bộ của "this". <br>
+						Những khái niệm và ví dụ trên đây còn là những bước cơ bản đầu tiên để có thể bước vào lập trình
+						hướng đối tượng trong JS (OOP)
+					</p>
+				</div>
+			</section>
+			<!-- .Object Method, "this" keyword -->
+
+			<!-- Number -->
+			<section class="section">
+				<h2 class="section-title">
+					Number
+				</h2>
+				<p>
+					Phần này sẽ tập trung vào những phương thức của Number.
+				</p>
+				<div class="block">
+					<h3 class="block-title">
+						Number.parseInt()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Chuyển một số sang số nguyên.<br>
+						<strong>Nhận vào: </strong><br>
+						Thường nhận vào một biến, có thể là number, string.... <br>
+						<strong>Trả về: </strong><br>
+						Kết quả trả về luôn là kiểu Number, nếu không chuyển đổi được thì sẽ trả về NaN
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 13.3;
+							var b = Number.parseInt(a);
+	
+							alert(b); // 13
+							alert(Number.parseInt('aaaa')); // NaN
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 13.3;
+							var b = Number.parseInt(a);
+
+							alert(b); // 13
+							alert(Number.parseInt('aaaa')); // NaN
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Number.isNaN()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Kiểm tra nếu nó là NaN.<br>
+						<strong>Nhận vào: </strong><br>
+						Nhận vào giá trị cần kiểm tra <br>
+						<strong>Trả về: </strong><br>
+						Trả về Boolean, có thể là true hoặc false
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'x' / 3;
+
+							alert(Number.isNaN(a));
+							alert(Number.isNaN(false));
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 'x' / 3;
+
+							alert(Number.isNaN(a));
+							alert(Number.isNaN(false));
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						toFixed
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Chuyển số về dạng số thực với số lượng chữ số sau dấu . nhất định. <br>
+						<strong>Nhận vào: </strong><br>
+						?range<br>
+						<strong>Trả về: </strong><br>
+						String, hãy nhớ hàm này sẽ trả về string chứ không phải number
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 27;
+							alert( a.toFixed(4) );
+
+							var b = 17 / 7;
+							alert( b.toFixed(3) );
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 27;
+							alert( a.toFixed(4) );
+
+							var b = 17 / 7;
+							alert( b.toFixed(3) );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Math.abs()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Lấy giá trị tuyệt đối. <br>
+						<strong>Nhận vào: </strong><br>
+						Số cần lấy giá trị tuyệt đối.<br>
+						<strong>Trả về: </strong><br>
+						Number, giá trị tuyệt đối, hoặc là NaN
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = -12;
+							var b = 'n';
+
+							alert(Math.abs(a));
+							alert(Math.abs(b));
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = -12;
+							var b = 'n';
+
+							alert(Math.abs(a));
+							alert(Math.abs(b));
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Math.pow()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Tính lũy thừa <br>
+						<strong>Nhận vào: </strong><br>
+						Nhận vào 2 số<br>
+						<strong>Trả về: </strong><br>
+						Number hoặc là NaN
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							alert( Math.pow(2,3) ); // 2*2*2
+							</code>
+						</pre>
+						<div class="code-body">
+							alert( Math.pow(2,3) ); // 2*2*2
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Math.floor()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Làm tròn xuống. <br>
+						<strong>Nhận vào: </strong><br>
+						Số cần làm tròn <br>
+						<strong>Trả về: </strong><br>
+						Number
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							alert( Math.floor(1.9) );
+							</code>
+						</pre>
+						<div class="code-body">
+							alert( Math.floor(1.9) );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Math.ceil()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Làm tròn lên. <br>
+						<strong>Nhận vào: </strong><br>
+						Số cần làm tròn <br>
+						<strong>Trả về: </strong><br>
+						Number
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							alert( Math.ceil(1.1) );
+							</code>
+						</pre>
+						<div class="code-body">
+							alert( Math.ceil(1.1) );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Math.round()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Làm tròn tự động. <br>
+						<strong>Nhận vào: </strong><br>
+						Số cần làm tròn <br>
+						<strong>Trả về: </strong><br>
+						Number
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							alert( Math.round(1.1) );
+							alert( Math.round(1.5) );
+							</code>
+						</pre>
+						<div class="code-body">
+							alert( Math.round(1.1) );
+							alert( Math.round(1.5) );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Math.min() <br>
+						Math.max()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Trả về min hoặc max. <br>
+						<strong>Nhận vào: </strong><br>
+						Một danh sách các đối tượng <br>
+						<strong>Trả về: </strong><br>
+						Number
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							alert( Math.min(1,2,3,4,5) );
+							alert( Math.max(1,2,3,4,5) );
+							</code>
+						</pre>
+						<div class="code-body">
+							alert( Math.min(1,2,3,4,5) );
+							alert( Math.max(1,2,3,4,5) );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Math.random();
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Trả về số từ 0 - 1, không thể trả về 1. <br>
+						<strong>Nhận vào: </strong><br>
+						không nhận vào gì<br>
+						<strong>Trả về: </strong><br>
+						Number
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							alert( Math.floor(Math.random() * 100) );
+							</code>
+						</pre>
+						<div class="code-body">
+							alert( Math.floor(Math.random() * 100) );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Math.sqrt();
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Căn bậc hai. <br>
+						<strong>Nhận vào: </strong><br>
+						Number<br>
+						<strong>Trả về: </strong><br>
+						Number
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							alert( Math.sqrt(4) );
+							</code>
+						</pre>
+						<div class="code-body">
+							alert( Math.sqrt(4) );
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- .Number -->
+
+			<!-- String -->
+			<section class="section">
+				<h2 class="section-title">
+					String
+				</h2>
+				<p>
+					Cách làm việc với string
+				</p>
+				<div class="block">
+					<h3 class="block-title">
+						Ký tự đặc biệt
+					</h3>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							alert(' i don't know ');
+							</code>
+						</pre>
+						<div class="code-body">
+							try {
+								alert(' i don't know ');
+							} catch(e) {
+								alert(e);
+							}
+						</div>
+					</div>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							alert(' i don\'t know ');
+							alert(' backslash \\ ');
+							</code>
+						</pre>
+						<div class="code-body">
+							alert(' i don\'t know ');
+							alert(' backslash \\ ');
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						length --- dùng để xác định độ dài của một chuỗi
+					</h3>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'Nu yjr Womf';
+							alert(a.length);
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 'Nu yjr Womf';
+							alert(a.length);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Raw string access
+					</h3>
+					<p>
+						Dùng [] và trỏ vào vị trí muốn truy cập
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'Nu yjr Womf';
+							alert(a[0]);
+							alert(a[a.length - 1]);
+							alert(a[100]);
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 'Nu yjr Womf';
+							alert(a[0]);
+							alert(a[a.length - 1]);
+							alert(a[100]);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						toLowerCase()<br>
+						toUpperCase()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Viết hoa hoặc viết thường<br>
+						<strong>Nhận vào: </strong><br>
+						---<br>
+						<strong>Trả về: </strong><br>
+						Trả về phiên bản thay đổi viết hoa hoặc viết thường
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'NigHt';
+							alert( a.toLowerCase() );
+							alert( a.toUpperCase() );
+							alert( a );
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 'NigHt';
+							alert( a.toLowerCase() ) ;
+							alert( a.toUpperCase() );
+							alert( a );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						charAt()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Lấy ký tự theo vị trí<br>
+						<strong>Nhận vào: </strong><br>
+						Number<br>
+						<strong>Trả về: </strong><br>
+						Trả về ký tự tại vị trí đó
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'NigHt';
+							alert( a.charAt(2) );
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 'NigHt';
+							alert( a.charAt(2) );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						endsWith()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Kiểm tra xem chuỗi kết thúc với với từ chỉ định không<br>
+						<strong>Nhận vào: </strong><br>
+						String kiểm tra<br>
+						<strong>Trả về: </strong><br>
+						Boolean
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'it getting dark';
+							alert( a.endsWith('dark') );
+							alert( a.endsWith('dark!') );
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 'it getting dark';
+							alert( a.endsWith('dark') );
+							alert( a.endsWith('dark!') );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						includes()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Kiểm tra xem một chuỗi có tồn tại trong chuỗi khác hay không<br>
+						<strong>Nhận vào: </strong><br>
+						String kiểm tra<br>
+						<strong>Trả về: </strong><br>
+						Boolean
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'it getting dark';
+							alert( a.includes('get') );
+							alert( a.includes('lost') );
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 'it getting dark';
+							alert( a.includes('get') );
+							alert( a.includes('lost') );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						indexOf()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Kiểm tra xem một chuỗi có tồn tại trong chuỗi khác hay không<br>
+						<strong>Nhận vào: </strong><br>
+						String kiểm tra<br>
+						<strong>Trả về: </strong><br>
+						Vị trí xuất hiện đầu tiên trong chuỗi
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'it getting dark';
+							alert( a.indexOf('get') );
+							alert( a.indexOf('lost') );
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 'it getting dark';
+							alert( a.indexOf('get') );
+							alert( a.indexOf('lost') );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						match()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Kiểm cũng kiểm tra chuỗi trong chuỗi khác nhưng hàm nãy có thể tăng cường bằng RegEx<br>
+						<strong>Nhận vào: </strong><br>
+						RegEx, string<br>
+						<strong>Trả về: </strong><br>
+						Mảng với các giá trị tương ứng
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'it getting dark';
+							alert( a.match(/[a-e]/) );
+							alert( a.match(/[1-9]/) );
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 'it getting dark';
+							alert( a.match(/[a-e]/g) );
+							alert( a.match(/[1-9]/) );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						replace()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Thay thế một phần bằng một phần khác<br>
+						<strong>Nhận vào: </strong><br>
+						RegEx, string<br>
+						<strong>Trả về: </strong><br>
+						String đã được thay thế
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'it getting dark';
+							alert( a.replace('dark', 'late') );
+							alert( a.replace('hi', 'bye') );
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 'it getting dark';
+							alert( a.replace('dark', 'late') );
+							alert( a.replace('hi', 'bye') );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						slice()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Cắt một string ra thành một string khác<br>
+						<strong>Nhận vào: </strong><br>
+						vị trí bắt đầu, vị trí kết thúc, có thể bỏ qua vị trí kết thúc<br>
+						<strong>Trả về: </strong><br>
+						String đã được cắt ra
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'castle in the sky';
+							alert( a.slice(3, 10) );
+							alert( a.slice(10) );
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 'castle in the sky';
+							alert( a.slice(3, 10) );
+							alert( a.slice(10) );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						split()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Chuyển một string ra thành một array.<br>
+						<strong>Nhận vào: </strong><br>
+						?separator  ---  chuỗi chia cắt<br>
+						<strong>Trả về: </strong><br>
+						Mảng đã được cắt ra
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = 'castle in the sky in the dusk';
+							alert( a.split() );
+							alert( a.split(' ') );
+							alert( a.split('in') );
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = 'castle in the sky in the dusk';
+							alert( a.split() );
+							alert( a.split(' ') );
+							alert( a.split('in') );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						trim()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Xóa khoảng trắng đâu và cuối string<br>
+						<strong>Nhận vào: </strong><br>
+						---<br>
+						<strong>Trả về: </strong><br>
+						String đã xóa khoảng trắng
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var a = '    hey    ';
+							alert( a.trim() );
+							</code>
+						</pre>
+						<div class="code-body">
+							var a = '    hey    ';
+							alert( a.trim() );
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- .String -->
+
+			<!-- Array -->
+			<section class="section">
+				<h2 class="section-title">
+					Array  ---  Mảng
+				</h2>
+				<p>
+					Mảng là một cấu trúc dữ liệu được sử dụng rộng rãi.<br>
+					JS không có kiểu mảng, mảng là một subtype của object. <br>
+					Mảng có thể dùng để lưu trữ nhiều dữ liệu với rất nhiều hàm hàm được xây dựng sẵn để hoạt động với nó.
+				</p>
+				<div class="block">
+					<h3 class="block-title">
+						Mảng Cơ Bản
+					</h3>
+					<p>
+						Một phần tử của mảng có thể chứa các kiểu dữ liệu khác nhau. <br>
+						Dùng [] để đọc phần tử theo vị trí của nó trong mảng. <br>
+						Dùng length để kiểm tra độ dài của mảng.
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [];
+							var arr2 = [2, 3, true, function(){alert(arr[0])}, {
+								name: "Inside"
+							}];
+
+							alert(arr[0]);
+							alert(arr2[1]);
+							arr2[3](); // vì là function nên có thể gọi
+							alert(arr2[4].name); 
+
+							alert(arr2.length); 
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [];
+							var arr2 = [2, 3, true, function(){alert(arr[0])}, {
+								name: "Inside"
+							}];
+
+							alert(arr[0]);
+							alert(arr2[1]);
+							arr2[3](); // vì là function nên có thể gọi
+							alert(arr2[4].name); 
+
+							alert(arr2.length); 
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Check Array
+					</h3>
+					<p>
+						Chúng ta không thể dùng typeof để check array được vì nó sẽ trả về object <br>
+						Để kiểm tra array thì dùng Array.isArray
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1,2,3];
+							var notAnArr = {};
+
+							alert(typeof arr);
+							alert(typeof notAnArr);
+
+							alert(Array.isArray(arr));
+							alert(Array.isArray(notAnArr));
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1,2,3];
+							var notAnArr = {};
+
+							alert(typeof arr);
+							alert(typeof notAnArr);
+
+							alert(Array.isArray(arr));
+							alert(Array.isArray(notAnArr));
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Copied By Reference
+					</h3>
+					<p>
+						Cũng giống như object, việc copy một array không hề tạo ra một object mới. <br>
+						Có rất nhiều cách khác nhau để copy array.
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1,2,3];
+							var arr2 = arr;  // gán mảng
+							
+							arr2[0] = 'X';  // chỉnh sửa phần tử của mảng 2
+							alert(arr[0]);
+							alert(arr2[0]);
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1,2,3];
+							var arr2 = arr;
+
+							arr2[0] = 'X';
+							alert(arr[0]);
+							alert(arr2[0]);
+						</div>
+					</div>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1,2,3];
+							var arr2 = [].concat(arr);  // dùng lệnh để tạo mảng clone
+							
+							arr2[0] = 'X';  // chỉnh sửa phần tử của mảng 2
+							alert(arr[0]);
+							alert(arr2[0]);
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1,2,3];
+							var arr2 = [].concat(arr);  // dùng lệnh để gán mảng
+							
+							arr2[0] = 'X';  // chỉnh sửa phần tử của mảng 2
+							alert(arr[0]);
+							alert(arr2[0]);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Thêm và xóa các phần tử trong mảng
+					</h3>
+					<p>
+						push()  ---  thêm vào cuối <br>
+						pop()  ---  xóa phần tử cuối <br>
+						shift()  ---  xóa phần tử đầu <br>
+						unshift()  ---  thêm vào đầu
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1,2,3];
+							
+							arr.push(4,5,6); // thêm 3 phần tử vào cuối
+							alert(arr);
+
+							arr.pop(); // xóa một phần tử cuối
+							arr.pop(); // xóa một phần tử cuối
+							alert(arr);
+							
+							arr.shift(); // xóa phần tử đầu
+							alert(arr);
+							
+							arr.unshift('a', 'b'); // thêm 2 phần tử vào đầu
+							alert(arr);
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1,2,3];
+						
+							arr.push(4,5,6); // thêm 3 phần tử vào cuối
+							alert(arr);
+
+							arr.pop(); // xóa một phần tử cuối
+							arr.pop(); // xóa một phần tử cuối
+							alert(arr);
+							
+							arr.shift(); // xóa phần tử đầu
+							alert(arr);
+							
+							arr.unshift('a', 'b'); // thêm 2 phần tử vào đầu
+							alert(arr);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						concat()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Cộng các mảng lại thành một mảng mới<br>
+						<strong>Nhận vào: </strong><br>
+						Một danh sách các mảng<br>
+						<strong>Trả về: </strong><br>
+						Một mảng mới
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1, 2];
+							var arr2 = [3, 4];
+							var arr3 = ['x', 'y'];
+
+							arr.concat(arr2, arr3);
+							alert(arr);
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1, 2];
+							var arr2 = [3, 4];
+							var arr3 = ['x', 'y'];
+
+							arr.concat(arr2, arr3);
+							alert(arr);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						includes()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Kiểm tra xem một thành phần có trong một mảng hay không<br>
+						<strong>Nhận vào: </strong><br>
+						Giá trị cần kiểm tra<br>
+						<strong>Trả về: </strong><br>
+						Boolean, true hoặc false
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1, 2, 'a', 'b'];
+
+							alert( arr.includes(3) );
+							alert( arr.includes('a') );
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1, 2, 'a', 'b'];
+
+							alert( arr.includes(3) );
+							alert( arr.includes('a') );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						indexOf()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Giống như hàm trên<br>
+						<strong>Nhận vào: </strong><br>
+						Giá trị cần kiểm tra<br>
+						<strong>Trả về: </strong><br>
+						Vị trí xuất hiện của giá trị
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1, 2, 'a', 'b'];
+
+							alert( arr.indexOf(3) );
+							alert( arr.indexOf('a') );
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1, 2, 'a', 'b'];
+
+							alert( arr.indexOf(3) );
+							alert( arr.indexOf('a') );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						join()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Hợp một mảng lại thành một chuỗi<br>
+						<strong>Nhận vào: </strong><br>
+						?separator<br>
+						<strong>Trả về: </strong><br>
+						Một chuỗi (string)
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = ['Can', 'I', 'help', 'you'];
+
+							alert( arr.join() );
+							alert( arr.join(' # ') );
+							alert( arr.join(' ') );
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = ['Can', 'I', 'help', 'you'];
+
+							alert( arr.join() );
+							alert( arr.join(' # ') );
+							alert( arr.join(' ') );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						slice()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Cắt một mảng thành một mảng khác<br>
+						<strong>Nhận vào: </strong><br>
+						vị trí bắt đầu, vị trí kết thúc<br>
+						<strong>Trả về: </strong><br>
+						Một mảng mới được cắt ra
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1,2,3,4,5,6];
+
+							alert( arr.slice(2) );
+							alert( arr.slice(2,4) );
+							alert( arr.slice(33) );
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1,2,3,4,5,6];
+
+							alert( arr.slice(2) );
+							alert( arr.slice(2,4) );
+							alert( arr.slice(33) );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						splice()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Một hàm tác động trực tiếp vào mảng<br>
+						<strong>Nhận vào: </strong><br>
+						Vị trí bắt đầu, số phần tử cần xóa, số phần tử cần thêm vào<br>
+						<strong>Trả về: </strong><br>
+						Một mảng những phần tử đã cắt ra
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1,2,3,4,7,8];
+
+							arr.splice(4, 0, 5, 6);  // từ vị trí thứ 4, xóa 0 phần tử, thêm vào 5, 6
+							alert(arr);
+							arr.splice(4, 3);  // từ vị trí thứ 3, xóa 3 phần tử
+							alert(arr);
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1,2,3,4,7,8];
+
+							arr.splice(4, 0, 5, 6);  // từ vị trí thứ 4, xóa 0 phần tử, thêm vào 5, 6
+							alert(arr);
+							arr.splice(4, 3);  // từ vị trí thứ 3, xóa 3 phần tử
+							alert(arr);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						reverse()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Đảo ngược một mảng trực tiếp thay đổi mảng cũ.<br>
+						<strong>Nhận vào: </strong><br>
+						--- <br>
+						<strong>Trả về: </strong><br>
+						Một mảng mới ngược lại của mảng cũ
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1,2,3];
+
+							alert(arr.reverse());
+							alert(arr);
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1,2,3];
+
+							alert(arr.reverse());
+							alert(arr);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Higher Order Function
+					</h3>
+					<p>
+						Higher Order Function có nghĩa là function cấp cao. <br>
+						Đây là những function nhận vào function khác hoặc là function trả về một function khác. <br>
+						Đây là những hàm rất mạnh và khó sử dụng nhưng nó cũng đóng vai trò quan trọng trong khi làm việc với mảng.
+					</p>
+					<p>
+						Đối với mảng thì có rất nhiều higher order function được xây dựng sẵn. <br>
+						Những function này thường sẽ nhận vào một tham số. <br>
+						tham số đó là một function khác. <br>
+						Function khác này có thể nhận vào 3 tham số ( thường chỉ dùng một ) <br>
+						tham số 1: chính là cái giá trị hiện tại đang được trỏ tới <br>
+						tham số 2: chính là số thứ tự của giá trị đó (index) <br>
+						tham số 3: chính là cái mảng đang sử dụng lệnh <br>
+						***: tài liệu sẽ viết tắt những hàm này thành arrayCallbackFunc
+					</p>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						forEach()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Dùng để lặp qua mảng.<br>
+						<strong>Nhận vào: </strong><br>
+						arrayCallbackFunc <br>
+						<strong>Trả về: </strong><br>
+						----
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = ['a','b','c'];
+
+							// vòng lặp thông thường
+							for ( var i = 0; i < arr.length; i++ ) {
+								  alert(arr[i]);
+							}
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = ['a','b','c'];
+
+							// vòng lặp thông thường
+							for ( var i = 0; i < arr.length; i++ ) {
+								alert(arr[i]);
+							};
+						</div>
+					</div>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = ['a','b','c'];
+
+							// vòng lặp bằng forEach
+							function arrayCallbackFunc(item, index, array) {
+								  // item chính là arr[i] trong vòng lặp for ở trên
+								  // index chính là i trong vòng lặp for ở trên
+								  // array chính là cái biến arr đang chạy vòng lặp này
+
+								  alert(item);
+								  alert(index);
+								  alert(array);
+							}
+
+							arr.forEach( arrayCallbackFunc ); // forEach nhận một function khác làm biến
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = ['a','b','c'];
+
+							function arrayCallbackFunc(item, index, array) {
+								  alert(item);
+								  alert(index);
+								  alert(array);
+							}
+
+							arr.forEach( arrayCallbackFunc );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						every()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Lặp qua mảng và test xem tất cả các phần tử có vượt qua được function kiểm tra không.<br>
+						<strong>Nhận vào: </strong><br>
+						arrayCallbackFunc <br>
+						Hàm này trả về true thì phần tử đó vượt qua test, trả về false thì là không vượt qua
+						<strong>Trả về: </strong><br>
+						Nếu tất cả các phần tử đều vượt qua, thì trả về true <br>
+						Còn lại trả về false
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1, 3, 5, 7];
+
+							var result = arr.every( function(item){
+								  return item < 10;
+							} )
+
+							var result2 = arr.every( function(item){
+								  return item < 5;
+							} )
+
+							alert(result); // tất cả các array đều nhỏ hơn 10 ?
+							alert(result2); // tất cả các phần từ đều nhỏ hơn 5 ?
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1, 3, 5, 7];
+
+							var result = arr.every( function(item){
+								return item < 10;
+							} )
+
+							var result2 = arr.every( function(item){
+								return item < 5;
+							} )
+
+							alert(result);
+							alert(result2);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						some()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Giống như hàm trên<br>
+						<strong>Nhận vào: </strong><br>
+						arrayCallbackFunc <br>
+						<strong>Trả về: </strong><br>
+						Chỉ cần 1 phần tử vượt qua thì sẽ là true <br>
+						Tất cả đều không vượt qua thì trả về false
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1, 3, 5, 7];
+
+							var result = arr.some( function(item){
+								  return item > 10;
+							} )
+
+							var result2 = arr.some( function(item){
+								  return item > 5;
+							} )
+
+							alert(result); // có phần tử nào lớn hơn 10 không
+							alert(result2); // có phần tử nào lớn hơn 5 không
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1, 3, 5, 7];
+
+							var result = arr.some( function(item){
+								return item > 10;
+							} )
+
+							var result2 = arr.some( function(item){
+								return item > 5;
+							} )
+
+							alert(result);
+							alert(result2);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						map()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Tạo ra một mảng mới dựa vào mảng cũ.<br>
+						<strong>Nhận vào: </strong><br>
+						arrayCallbackFunc <br>
+						Hàm này trả về gì thì đó sẽ là phần tử của mảng mới <br>
+						<strong>Trả về: </strong><br>
+						Trả về một mảng mới
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1, 3, 5, 7];
+
+							var newArr = arr.map( function(item) {
+								  return item*2; // với mỗi phần tử trong mảng, trả về phiên bản *2 của phần tử đó
+							} )
+
+							alert(newArr);
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1, 3, 5, 7];
+
+							var newArr = arr.map( function(item) {
+								return item*2; // với mỗi phần tử trong mảng, trả về phiên bản *2 của phần tử đó
+							} )
+
+							alert(newArr);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						filter()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Chọn lọc ra các phần tử từ một mảng.<br>
+						<strong>Nhận vào: </strong><br>
+						arrayCallbackFunc <br>
+						Hàm này trả về true thì phần tử đó được chọn, false thì bỏ qua.<br>
+						<strong>Trả về: </strong><br>
+						Trả về một mảng mới
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1, 3, 5, 7];
+
+							var newArr = arr.filter( function(item) {
+								  return item > 3;  // chọn những phần tử lớn hơn 3
+							} )
+
+							alert(newArr);
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1, 3, 5, 7];
+
+							var newArr = arr.filter( function(item) {
+								  return item > 3;
+							} )
+
+							alert(newArr);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						sort()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Sắp xếp các phần tử trong mảng, trực tiếp tác động mảng cũ.<br>
+						<strong>Nhận vào: </strong><br>
+						Nhận vào một function khác.<br>
+						Function này sẽ nhận vào 2 tham số (a, b) <br>
+						Người ta gọi nó là compare function <br>
+						<strong>Trả về: </strong><br>
+						Chúng ta không cần quan tâm tới cách mà compare function hoạt động. <br>
+						Chỉ biết là nếu compare function trả về kết quả nhỏ hơn 0, thì phần tử a sẽ đứng trước b <br>
+						Nếu kết quả lớn hơn 0 thì a sẽ đứng sau b
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [-1, 2, 9, -39, 2, 4];
+
+							arr.sort( function(a, b) {
+								  return a - b; 
+							} )
+						
+							alert(arr);
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [-1, 2, 9, -39, 2, 4];
+
+							arr.sort( function(a, b) {
+								  return a - b; 
+							} )
+						
+							alert(arr);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						reduce()
+					</h3>
+					<p>
+						<strong>Mô tả: </strong><br>
+						Tính toán từ một mảng rồi trả về một giá trị duy nhất.<br>
+						<strong>Nhận vào: </strong><br>
+						Nhận vào một function khác và có thể có thêm một initial value. <br>
+						Function này có thể nhận lên tới 4 tham số (thường chỉ dùng 2) <br>
+						tham số 1: Accumulator ( giá trị tích lũy từ trả về ) <br>
+						tham số 2: Current Value ( phần tử hiện thời trong mảng ) <br>
+						tham số 3: index ( số thứ tự của phần tử hiện thời ) <br>
+						tham số 4: chính là cái mảng đang chạy lệnh này <br>
+						Thường gọi là reducer function <br>
+						<strong>Trả về: </strong><br>
+						Trả về một giá trị duy nhất
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var arr = [1,2,3,4];
+
+							var result = arr.reduce( function(acc, curr) {
+								  return acc + curr;
+							} )
+
+							// hãy xem cách mà reduce hoạt động
+							// đâu tiên là reduce không có initial value
+							// reducer function sẽ nhận phần tử đầu tiên trong arr là acc
+							// bắt đầu chạy từ phần tử thứ hai
+
+							// vòng 1
+							// acc là arr[0] (1)  ---  curr là arr[1] (2)
+							// trả về: 3 ( 1 + 2 )
+							
+							// giá trị trả về sẽ dùng làm acc cho lần tiếp theo
+							// vòng 2
+							// acc: 3 (trả về) ---  curr là arr[2] (3)
+							// trả về: 6 
+
+							// vòng 3
+							// acc: 6 (trả về) ---  curr là arr[3] (4)
+							// trả về: 10
+							
+							// kết thúc vì hết phần tử trong mảng
+							// kết quả trả về 10
+						
+							alert(result);
+							</code>
+						</pre>
+						<div class="code-body">
+							var arr = [1,2,3,4];
+
+							var result = arr.reduce( function(acc, curr) {
+								  return acc + curr;
+							} )
+
+							alert(result);
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- .Array -->
+
+			<!-- Date and Time -->
+			<section class="section">
+				<h2 class="section-title">
+					Date and Time
+				</h2>
+				<p>
+					Một object có sẵn trong JS, nó sẽ chứa thông tin về thời gian và một số phương thức hữu dụng khác. <br>
+					Chúng ta có thể dùng date để tạo hoặc thay đổi, ước lượng thời gian....
+				</p>
+				<div class="block">
+					<h3 class="block-title">
+						Tạo dựng
+					</h3>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							// lấy thời gian hiện tại
+							var date1 = new Date();
+							alert(date1);
+
+							// lấy thời gian hiện tại  -  miliseconds từ 1 Jan 1970
+							var date2 = Date.now();
+							alert(date2);
+
+							// new Date(datestring)
+							var date3 = new Date("2019-02-22");
+							alert(date3);
+
+							// new Date(year, month, date, hours, minutes, seconds, ms)
+							// year phải là 4 số
+							// month đếm từ 0 - 11
+							var date4 = new Date(2019, 9, 10, 9);
+							alert(date4);
+							</code>
+						</pre>
+						<div class="code-body">
+							var date1 = new Date();
+							alert(date1);
+
+							var date2 = Date.now();
+							alert(date2);
+
+							var date3 = new Date("2019-02-22");
+							alert(date3);
+
+							var date4 = new Date(2019, 9, 10, 9);
+							alert(date4);
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Phương thức của Date  -  lấy dữ liệu
+					</h3>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var date = new Date(2019, 9, 10, 9);
+							alert(date);
+
+							// lấy năm
+							alert( date.getFullYear() );
+
+							// lấy số của tháng ( 0 - 11 )
+							alert( date.getMonth() );
+
+							// lấy số của tháng ( 1 - 31 )
+							alert( date.getDate() );
+
+							// getHours(), getMinutes(), getSeconds(), getMilliseconds(), getDay()
+							alert( date.getHours() );
+							</code>
+						</pre>
+						<div class="code-body">
+							var date = new Date(2019, 9, 10, 9);
+							alert(date);
+							alert( date.getFullYear() );
+
+							alert( date.getMonth() );
+
+							alert( date.getDate() );
+
+							alert( date.getHours() );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Phương thức của Date  -  cập nhật dữ liệu
+					</h3>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var date = new Date(2019, 9, 10, 9);
+							alert(date);
+
+							// setFullYear(), setMonth(), setDate()
+							// setHours(), setMinutes(), setSecond()
+							date.setFullYear(2030);
+							date.setDate(30);
+
+							alert(date.getFullYear());
+							alert(date.getDate());
+							</code>
+						</pre>
+						<div class="code-body">
+							var date = new Date(2019, 9, 10, 9);
+							alert(date);
+
+							date.setFullYear(2030);
+							date.setDate(30);
+
+							alert(date.getFullYear());
+							alert(date.getDate());
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Tính toán thời gian
+					</h3>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							// ngày 10 tháng 3 năm 2019
+							var date1 = new Date("2019-03-10");
+
+							// ngày 20 tháng 3 năm 2019
+							var date2 = new Date("2019-03-20");
+						
+							// kết quả này chính là số miliseconds đã qua kể tử date1 đến date2
+							alert( date2 - date1 );
+
+							// 1000ms = 1s
+							// 60s = 1m
+							// 60m = 1h
+							// 24h = 1day
+
+							// tính xem bao nhiêu ngày đã qua từ date1 đến date2
+							alert( "ngày đã qua: " + (date2 - date1) / (1000 * 60 * 60 * 24) )
+							</code>
+						</pre>
+						<div class="code-body">
+							var date1 = new Date("2019-03-10");
+
+							var date2 = new Date("2019-03-20");
+
+							alert( date2 - date1 );
+
+							alert( "ngày đã qua: " + (date2 - date1) / (1000 * 60 * 60 * 24) )
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- .Date and Time -->
+
+			<!-- Regular Expressions -->
+			<section class="section">
+				<h2 class="section-title">
+					Regular Expressions
+				</h2>
+				<p>
+					Regular Expressions hay gọi tắt là RegExp. <br>
+					Là những "thần chú" cực kỳ mãnh mẽ khi làm việc với chữ. <br>
+					Thường được định nghĩa bằng dấu /.../ hoặc tạo dựng với RegExp Object. <br>
+					RegEx có 2 phần gồm pattern và flag
+				</p>
+				<div class="codebox">
+					<pre class="line-numbers">
+						<code class="language-js">
+						var regex = /pattern/; // cái ở trong // là pattern
+						var regex = /pattern/gi; // g, i ở ngoài gọi là flag
+
+						// có 2 loại flag thường dùng là
+						// i --- bỏ qua hoa thường ( A cũng như a)
+						// g --- tìm kiếm toàn bộ ( global ), nếu không có thì chỉ trả về cái đầu tiên tìm được
+						</code>
+					</pre>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						str.match
+					</h3>
+					<p>
+						Tìm những từ phù hợp trong string, và trả về mảng
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var str = "A love B lOve C LovE D love Z LOVE A";
+
+							// tìm chữ "love" --- có 2 nhưng chỉ trả về 1
+							alert(str.match(/love/)); 
+
+							// tìm tất cả chữ love --- có flag g, trả về tất cả
+							alert(str.match(/love/g));
+
+							// tìm tất cả chữ love --- có flag g, i bỏ qua hoa thường và trả về tất cả
+							alert(str.match(/love/gi));  
+							</code>
+						</pre>
+						<div class="code-body">
+							var str = "A love B lOve C LovE D love Z LOVE A";
+
+							alert(str.match(/love/));
+							alert(str.match(/love/g));
+							alert(str.match(/love/gi));  
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						str.replace
+					</h3>
+					<p>
+						Thay thế những thứ tìm được
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var str = "A love B lOve C LovE D love Z LOVE A";
+
+							// thay chữ love, bỏ qua hoa thường, thay tất cả, với chữ hate
+							alert(str.replace(/love/gi, 'hate'))
+							</code>
+						</pre>
+						<div class="code-body">
+							var str = "A love B lOve C LovE D love Z LOVE A";
+
+							alert(str.replace(/love/gi, 'hate'))
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						regexp.text
+					</h3>
+					<p>
+						Kiểm tra xem regexp có đúng trong str đó hay không, chứ ý regexp viết trước
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var str = "A love B lOve C LovE D love Z LOVE A";
+
+							// kiểm tra xem có chữ "hate" hay không, không phân biệt hoa thường
+							alert( /hate/i.test(str) )
+							</code>
+						</pre>
+						<div class="code-body">
+							var str = "A love B lOve C LovE D love Z LOVE A";
+
+							alert( /hate/i.test(str) )
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Character Class
+					</h3>
+					<p>
+						Đại diện cho 1 ký tự duy nhất.
+					</p>
+					<p>
+						<strong>\d</strong><br>
+						Số từ 0 - 9 <br>
+						<strong>\s</strong><br>
+						Khoảng cách <br>
+						<strong>\w</strong> <br>
+						Thường là chữ latin (a - z) <br>
+						<strong>.</strong> <br>
+						Ký tự nào cũng được <br>
+						<strong>\D</strong> <br>
+						Ngược lại của \d, không phải là số <br>
+						<strong>\W</strong> <br>
+						Ngược lại của \w, không phải là chữ <br>
+						<strong>\S</strong> <br>
+						Ngược lại của \s, không phải là khoảng trắng <br>
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var str1 = 'Goodbye';
+							var str2 = 'Phone Number: 010203';
+							var str3 = 'Hi';
+
+							alert(/\d/.test(str1)); // test xem có ký tự số trong s1 không
+							alert(str2.replace(/\D/, '$'));  // thay thế ký tự không phải số với "$"
+							alert(/.../.test(str3));   // có 3 ký tự bất kỳ liền nhau ?
+							</code>
+						</pre>
+						<div class="code-body">
+							var str1 = 'Goodbye';
+							var str2 = 'Phone Number: 010203';
+							var str3 = 'Hi';
+
+							alert(/\d/.test(str1)); // test xem có ký tự số trong s1 không
+							alert(str2.replace(/\D/, '$'));  // thay thế ký tự không phải số với "$"
+							alert(/.../.test(str3));   // có 3 ký tự bất kỳ liền nhau ?
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Anchors: Bắt đầu và kết thúc string
+					</h3>
+					<p>
+						^: ký hiệu cho bắt đầu của string <br>
+						$: ký hiệu cho kết thúc string
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var str1 = 'Lily was a little girl';
+							alert( /^Lily/.test(str1) );  // str bắt đầu bằng Lily ?
+							
+							var str2 = '30:99';
+							alert( /^\d\d:\d\d$/.test(str2) );  // str2 bắt đầu bằng \d và kết thúc bằng \d ?
+							</code>
+						</pre>
+						<div class="code-body">
+							var str1 = 'Lily was a little girl';
+							alert( /^Lily/.test(str1) );  // str bắt đầu bằng Lily ?
+							
+							var str2 = '30:99';
+							alert( /^\d\d:\d\d$/.test(str2) );  // str2 bắt đầu bằng \d và kết thúc bằng \d ?
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Set and ranges
+					</h3>
+					<p>
+						<strong>[abc]</strong> <br>
+						Là một trong các ký tự a, b, c <br>
+						<strong>[a-z]</strong><br>
+						Từ a đến z <br>
+						<strong>[^a-z]</strong><br>
+						Không phải từ a - z
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var str = '1a2b3c';
+							alert( /\d[a-z]\d[1-9]/.test(str) );
+
+							var str1 = '12ab';
+							alert( /^[^a-z]/.test(str1) );
+							alert( /[12]\d\w[xy]/.test(str1) );
+							</code>
+						</pre>
+						<div class="code-body">
+							var str = '1a2b3c';
+							alert( /\d[a-z]\d[1-9]/.test(str) );
+
+							var str1 = '12ab';
+							alert( /^[^a-z]/.test(str1) );
+							alert( /[12]\d\w[xy]/.test(str1) );
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Quantifiers
+					</h3>
+					<p>
+						<strong>{n}</strong> <br>
+						\d{3} bắt buộc là 3 \d.<br>
+						<strong>{1,4}</strong><br>
+						\d{1,4} từ một đến 4 \d.<br>
+						<strong>+</strong><br>
+						Có nghĩa là một hoặc nhiều hơn.<br>
+						\s+ một hoặc nhiều hơn khoảng trắng.<br>
+						<strong>?</strong><br>
+						Không có hoặc có một. <br>
+						<strong>*</strong><br>
+						Không có hoặc có nhiều hơn 0 <br>
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var str = '123 asdasf 12344 asdfs';
+
+							alert( str.match(/\d{4,6}/) );
+							alert( str.match(/\d+/gi) ); 
+							</code>
+						</pre>
+						<div class="code-body">
+							var str = '123 asdasf 12344 asdfs';
+
+							alert( str.match(/\d{4,6}/) );
+							alert( str.match(/\d+/gi) ); 
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<h3 class="block-title">
+						Capturing Group
+					</h3>
+					<p>
+						Gộp một nhóm các ký tự<br>
+						/la+/: viết như này có nghĩa chữ "l" và một hoặc nhiều hơn chữ "a", có nghĩa là laaaaaaa, laaaa ... <br>
+						/(la)+/: viết như này có nghĩa chữ "la" một hoặc nhiều hơn, lala lalala ....
+					</p>
+					<div class="codebox">
+						<button class="btn-play"></button>
+						<pre class="line-numbers">
+							<code class="language-js">
+							var str = 'nonono nono nooooo';
+							alert( str.match(/(no)+/g) );
+
+							var str1 = '1a2b3b, 1a2b3bz6ss'
+							alert( str1.match(/(\d\w)+/g) );
+							</code>
+						</pre>
+						<div class="code-body">
+							var str = 'nonono nono nooooo';
+							alert( str.match(/(no)+/g) );
+
+							var str1 = '1a2b3b, 1a2b3bz6ss'
+							alert( str1.match(/(\d\w)+/g) );
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- .Regular Expressions -->
+		</div>
+	</main>
+
+	<!-- Prism -->
+	<script src="vendor/prism/prism.js"></script>
+
+	<!-- Custom Script -->
+	<script src="js/main.js"></script>
+</body>
+
+</html>
